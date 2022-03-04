@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- USER CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>메이킹첼린지 | 사용자관리 화면</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <script>
+        $(document).ready(function () {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            const head_html = `<label class="col-form-label font-contents">관리자 ${userInfo['name']}님 환영합니다!</label>`;
+            const tmp_html = `
+                            <div class="form-group row">
+                                <button type="button" onclick="btnMain()" class="btn btn-success mybtn">메인 화면</button>
+                            </div>
+                `;
+            $('#txtHead').append(head_html);
+            $('#btnFooter').append(tmp_html);
+
+            listing();
+
+            $('input[name=selected_all]').on('change', function () {
+                $('input[name=selected]').prop('checked', this.checked);
+            });
+        });
+
+        $(document).on("dblclick", ".editable", function () {
+            let value = $(this).text();
+            let input = "<input type='text' class='input-data' value='" + value + "' class='form-control'>";
+            $(this).html(input);
+            $(this).removeClass("editable");
+        });
+
+        $(document).on("keypress", ".input-data", function (e) {
+            let key = e.which;
+            if (key == 13) {    // 엔터키를 입력할 때
+                let value = $(this).val();
+                let td = $(this).parent("td");
+                $(this).remove();
+                td.html(value);
+                td.addClass("editable");
+                let tr = td.parent("tr");
+                console.log(tr.text());
+            }
+        });
+
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "/users",
+                data: {},
+                success: function (response) {
+                    let users = response['users_info']
+
+                    for (let i = 0; i < users.length; i++) {
+                        let no = i + 1;
+                        let name = users[i]['name'];
+                        let id = users[i]['id'];
+                        let pw = users[i]['pw'];
+                        let author = users[i]['author'];
+
+                        let tmp_html = ``;
+
+                        if (author === 1) {
+                            tmp_html = `<tr>
+                                             <td><input type="checkbox" name="selected"></td>
+                                             <td id="no">${no}</td>
+                                             <td class="editable">${id}</td>
+                                             <td class="editable">${pw}</td>
+                                             <td class="editable">${name}</td>
+                                             <td>
+                                                 <select id="selectAuthor">
+                                                     <option value="1" selected>관리자</option>
+                                                     <option value="2">사용자</option>
+                                                 </select>
+                                             </td>
+                                        </tr>
+                            `;
+                        } else {
+                            tmp_html = `<tr>
+                                             <td><input type="checkbox" name="selected"></td>
+                                             <td id="no">${no}</td>
+                                             <td class="editable">${id}</td>
+                                             <td class="editable">${pw}</td>
+                                             <td class="editable">${name}</td>
+                                             <td>
+                                                 <select id="selectAuthor">
+                                                     <option value="1">관리자</option>
+                                                     <option value="2" selected>사용자</option>
+                                                 </select>
+                                             </td>
+                                        </tr>
+                            `;
+                        }
+                        $('#users').append(tmp_html);
+                    }
+                }
+            })
+        }
+
+        function btnMain(){
+            window.location.href = '/main';
+        }
+    </script>
+</head>
+<body>
+    <div class="warp">
+        <div class="push">
+            <div id="txtHead"></div>
+        </div>
+        <h1 align="center" style="margin: 30px auto 30px auto">사용자관리 화면</h1>
+        <div style="width: 800px; margin: auto">
+            <button type="button" onclick="btnAdd()" class="btn btn-success tbtn">추가</button>
+            <button type="button" onclick="btnDel()" class="btn btn-success tbtn">삭제</button>
+            <button type="button" onclick="btnSave()" class="btn btn-success tbtn">저장</button>
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col" width="50px"><input type="checkbox" name="selected_all"></th>
+                    <th scope="col" width="50px">No</th>
+                    <th scope="col" width="200px">ID</th>
+                    <th scope="col" width="200px">PW</th>
+                    <th scope="col" width="200px">이름</th>
+                    <th scope="col" width="100px">권한</th>
+                </tr>
+                </thead>
+                <tbody id="users">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="footer">
+        <div style="display:flex" id="btnFooter">
+            <div class="form-group row"></div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기보기 | 보람삼조</title>
+
+    <!--css js 링크-->
+    <link href="../static/my_diary.css" rel="stylesheet"/>
+    <script async src="../static/my_diary.js"></script>
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    
+    <!-- fontawsome link -->
+    <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
+    <script>
+        // 댓글창열기/닫기
+        function myFunction() {
+            var x = document.getElementById("comments-list");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        // // 댓글달기 버튼
+        // const form__field = document.querySelector('.form__field');
+        // const mediaAdd = document.querySelector('.mediaAdd');
+        // const lists = document.querySelector('.lists');
+
+        // const onAdd = () => {
+        //     console.log('찍히니?');
+        // };
+
+        // mediaAdd.addEventListener('click', () => {
+        //     onAdd();
+        // });
+    </script>
+</head>
+<body>
+    <!-- title -->
+    <div class="title">
+        <h1>MY<span> ANGRY </span>DIARY</h1>
+    </div>
+    <!-- arrow -->
+    <div class="back_button">
+        <i class="fas fa-arrow-left" type="button"></i>
+        <i class="fas fa-arrow-right" type="button"></i>
+    </div>
+    <!-- bar -->
+    <div class="bar">
+        <h2>2022.03.04</h2>
+        <div class="tag">
+            직장
+        </div>
+        <div class="tag">
+            대노
+        </div>
+        <div class="tag">
+            타인
+        </div>
+        <div class="tag">
+            상황
+        </div>
+        <div class="emoticon">
+            <i class="fas fa-grin-beam"></i>
+            <i class="fas fa-angry"></i>
+        </div>
+    </div>
+    <!-- write -->
+    <div class="write">
+        <div>
+            box
+        </div>
+    </div>
+    <!-- comment -->
+    <div class="comment">
+        <div class="comment_box">
+            <button onclick="myFunction()"  class="btn_comment">
+            댓글보기▼
+            </button>
+        </div>
+        <div id="comments-list" class="comment-list">
+            <div class="lists">
+            <div class="media">
+                   <p class="media-heading user_name">노경민</p>
+                   <h6 class="user_comment">Wow! this is really great.</h6>
+                   <button type="button" class="comment-delete-btn">삭제</button>
+               </div>
+            <div class="media">
+                   <p class="media-heading user_name">이재은</p>
+                   <h6 class="user_comment">Wow! this is really great.</h6>
+                   <button type="button" class="comment-delete-btn">삭제</button>
+               </div>
+            <div class="media">
+                   <p class="media-heading user_name">황윤경</p>
+                   <h6 class="user_comment">Wow! this is really great.</h6>
+                   <button type="button" class="comment-delete-btn">삭제</button>
+               </div>
+            <div class="media">
+                   <p class="media-heading user_name">한종혁</p>
+                   <h6 class="user_comment">Wow! this is really great.</h6>
+                   <button type="button" class="comment-delete-btn">삭제</button>
+               </div>
+            </div>
+            <div class="write_comment">
+                    <form class="form">
+                        <input type="text" class="form__field" placeholder="댓글을 달아주세요." />
+                        <button type="button" class="btn btn--primary btn--inside uppercase">댓글 달기</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

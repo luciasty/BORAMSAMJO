@@ -17,8 +17,8 @@ body{background-image: url("home.jpg");
     }
 
 .ib-wrap {
-  width: 50%;
-  margin: 10px auto;
+  width: 60%;
+  margin: auto;
   border: 1px solid #000000;
   position: relative;
 }
@@ -42,9 +42,16 @@ body{background-image: url("home.jpg");
   margin-right: -4px;
 }
 
+/* buttons */
 .mybtn {
   width: 150px;
-  margin: auto;
-  display: block;
+  margin: auto auto auto 25%;
+  display: grid;
   font-size: 20px;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Jua', sans-serif;
 }
+
+

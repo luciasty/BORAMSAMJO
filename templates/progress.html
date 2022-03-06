@@ -1,0 +1,129 @@
+<!DOCTYPE html>;
+<html lang="en" style="height: 100%">;
+
+<head>
+    <meta charset="UTF-8">;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메이킹첼린지 | 통계</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">;
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">;</script>
+
+    <style>
+        .bd {
+            padding-top: 13rem;
+            background-image: url("../static/background_img.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+
+
+<body class = "bd">
+    <div class="container"></div>
+        <canvas id="myChart"></canvas>
+    </div>
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['#$$%$!', '시무룩', '어지러워', '???', '딮빡'],
+        datasets: [{
+          label: '',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            '#CE962C',
+            '#64CE2C',
+            '#962CCE',
+            '#2C64CE',
+            '#CE2C64'
+          ],
+          borderColor: [
+            '#000000',
+            '#64CE2C',
+            '#962CCE',
+            '#2C64CE',
+            '#CE2C64',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+            }
+          }]
+        }
+      }
+    });
+</script>
+
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="chart-container" style="position: relative; height:45vw; width:45vw">
+                <div class="card" style="border:none; background-color: #CE962C">
+                    <div class="card-body" style="border:none;">
+                        <canvas id="myChart1">;</canvas>
+                    </div>
+                    <div class="card-footer text-center text-dark" style="border:none;background-color: #CE962C">
+                        <h3>왼쪽 그래프 이름</h3>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="chart-container" style="position: relative; height:45vw; width:45vw">
+                <div class="card" style="border:none;">
+                    <div class="card-body" style="border:none; background-color: #CE962C">
+                        <canvas id="myChart2">;</canvas>
+                    </div>
+                    <div class="card card-body text-center" style="border:none; background-color: #CE962C">
+                        <h3>오른쪽 그래프 이름</h3>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    data = {
+        datasets: [{
+            backgroundColor: ['#962CCE', '#CE2C64', '#2C64CE'],
+            data: [10, 20, 30]
+        }],
+        labels: ['어지러워', '딮빡', '???']
+    };
+
+    var ctx1 = document.getElementById("myChart1");
+    var myPieChart = new Chart(ctx1, {
+        type: 'pie',
+        data: data,
+        options: {
+            response: false
+        }
+    });
+
+    var ctx2 = document.getElementById("myChart2");
+    var myDoughnutChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: data,
+        options: {
+            response: false
+        }
+    });
+</script>
+</body>
+
+</html>

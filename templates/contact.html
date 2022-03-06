@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- USER CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -54,56 +54,49 @@
             url: "/users",
             data: { id_give: userID,
                     pw_give: userPW,
-                    nm_give: userNM,
-                    au_give: 2,
-                    chk_btn: 0,
-                    tmp_id: "",
-                    tmp_pw: ""
+                    nm_give: userNM
             },
             success: function (response) { // 성공하면
                 alert(response["msg"]);
-                if (response["result"] === 'success')
-                    window.location.href = '/';
-                else
-                    $('#userId').focus();
+                window.location.href = '/';
             }
-        });
+        })
    }
 </script>
-<body>
+<body style="background-color: #C5003D">
+    <div class="joinSize" style="height: 50px; width: 800px; margin: 10% auto auto auto; background-color: #AF1D49">
+        <label style="color: aliceblue" class="col-form-label font-contents">회원가입</label>
+    </div>
+
     <div class="warp">
-        <div class="guestSize" style="width:25%">
-            <label class="col-form-label font-contents">회원가입</label>
-        </div>
-        <div style="border: 2px solid green">
-            <div style="margin: 30px 50px 30px">
+        <div style= "height:400px; width: 800px; margin:0 auto; padding: 5% 0px 50px 0px; background-color: #CE962C">
+            <div style="margin: 0px 30px 0px 30px">
                 <div class="form-group row">
-                    <label class="col-form-label font-contents" style="width: 100%">아이디를 입력하세요.</label>
+                    <label style="color: aliceblue; width: 100%" class="col-form-label font-contents">아이디를 입력하세요.</label>
                     <div>
-                        <input id="userId" class="form-control" placeholder="ID" size="100%">
+                        <input style="background-color: #CE962C; border-radius: 10px; border: 5px solid #835863;" id="userId" class="form-control" placeholder="ID" size="100%">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-form-label font-contents" style="width: 100%">패스워드를 입력하세요.</label>
+                    <label style="color: aliceblue; width: 100%" class="col-form-label font-contents">패스워드를 입력하세요.</label>
                     <div>
-                        <input id="userPw" class="form-control" placeholder="Password" size="100%">
+                        <input style="background-color: #CE962C; border-radius: 10px; border: 5px solid #835863;" id="userPw" class="form-control" placeholder="PASSWORD" size="100%">
                     </div>
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 30px">
-                    <label class="col-form-label font-contents" style="width: 100%">이름을 입력하세요.</label>
+                    <label style="color: aliceblue; width: 100%" class="col-form-label font-contents">이름을 입력하세요.</label>
                     <div>
-                        <input id="userName" class="form-control" placeholder="NAME" size="100%">
+                        <input style="background-color: #CE962C; border-radius: 10px; border: 5px solid #835863;" id="userName" class="form-control" placeholder="NAME" size="100%">
                     </div>
-                </div>
-
-                <div class="form-group row" style="display: flex">
-                    <button type="button" onclick="postUserInfo()" class="btn btn-success mybtn">회원가입</button>
-                    <a href="/" class="btn btn-success mybtn">돌아가기</a>
                 </div>
             </div>
         </div>
     </div>
+    <div class="form-group row" style="display: flex; margin:10px auto 10px auto; width: 800px;">
+        <button style="border:none; color:#CE962C; height: 50px; width:390px; background-color: #AF1D49" type="button" onclick="postUserInfo()" class="btn btn-success mybtn">회원가입</button>
+        <a href="/contact" style="padding-right: 3px;border:none; color:#CE962C; height: 50px; width:390px; background-color: #AF1D49" class="btn btn-success mybtn">돌아가기</a>
+    </div>
+
 </body>
-</html>

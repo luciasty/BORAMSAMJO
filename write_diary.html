@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기쓰기 | 보람상조</title>
+
+    <!--css js 링크-->
+    <link href="../static/write_diary.css" rel="stylesheet"/>
+    <script async src="../static/write_diary.js"></script>
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- title -->
+    <div class="title">
+        <h1>MY<span> ANGRY </span>DIARY</h1>
+    </div>
+    <!-- bar -->
+    <div class="bar">
+        <div class="bar1">
+            어떤 상황이었나요?
+        </div>
+        <div class="bar2">
+            어떻게 행동했나요?
+        </div>
+    </div>
+    <!-- main -->
+    <div class="main">
+        <!-- buttons -->
+        <div class="select">
+            <!-- 날짜 -->
+            <div class="date">
+                <p>날 짜</p>
+                <div class="birthday">
+                    <input type="text" class="month" placeholder="MM" maxlength="2" pattern="\d*">
+                    <span>/</span>
+                    <input type="text" class="day" placeholder="DD" maxlength="2" pattern="\d*">
+                    <span>/</span>
+                    <input type="text" class="year" placeholder="YYYY" maxlength="4" pattern="\d*">
+                </div>
+            </div>
+            <!-- 장소 -->
+            <div class="area">
+                <p>장 소</p>
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input name='area' type='radio' id='home' checked='checked'>
+                            <span class='inner-label'>집</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='area' type='radio' id='school'>
+                            <span class='inner-label'>학교</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='area' type='radio' id='company'>
+                            <span class='inner-label'>직장</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='area' type='radio' id='group'>
+                            <span class='inner-label'>모임</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='area' type='radio' id='etc'>
+                            <span class='inner-label'>기타</span>
+                        </label>
+                    </div>
+            </div>
+            <!-- 분노치 -->
+            <div class="angry">
+                <p>분 노 치</p>
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input name='angry' type='radio' id='small_angry' checked='checked'>
+                            <span class='inner-label'>소노</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='angry' type='radio' id='middle_angry'>
+                            <span class='inner-label'>중노</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='angry' type='radio' id='large_angry'>
+                            <span class='inner-label'>대노</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='angry' type='radio' id='Xlarge_angry'>
+                            <span class='inner-label'>극대노</span>
+                        </label>
+                    </div>
+            </div>
+            <!-- 대상 -->
+            <div class="who">
+                <p>대 상</p>
+                <div class="center">
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input name='who' type='radio' id='pizza' checked='own'>
+                            <span class='inner-label'>본인</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='who' type='radio' id='others'>
+                            <span class='inner-label'>타인</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- 이유 -->
+            <div class="reason">
+                <p>이 유</p>
+                <div class="center">
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input name='reason' type='radio' id='pizza' checked='word'>
+                            <span class='inner-label'>말</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='reason' type='radio' id='action'>
+                            <span class='inner-label'>행동</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='reason' type='radio' id='situation'>
+                            <span class='inner-label'>상황</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- write -->
+        <div class="paper">
+        <div class="lines">
+          <div class="text" contenteditable spellcheck="false">
+            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
+            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
+            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
+            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
+            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.</div>
+        </div>
+        </div>
+    </div>
+    <!-- button -->
+    <div class="button">
+        <div class="button1">
+            취 소
+        </div>
+        <div class="button2">
+            작 성 완 료
+        </div>
+    </div>
+</body>
+</html>

@@ -44,10 +44,25 @@ body {
   margin-right: -4px;
   font-size: 3.5rem;
 }
+
+
+/* clock */
+.flex-container {
+  color: white;
+  display: flex;
+  font-size: 1.2rem;
+  font-family: 'Jua', sans-serif;
+  margin-left: 80vw;
+  width: 400px;
+}
+  .flex-container.flex-end{justify-content: flex-end;}
+
 /* main */
 .tab-content {
   width: 100vw;
+  overflow-y: auto;
 }
+
 .tabs {
   margin-top: 45%;
   margin-left: 10%;
@@ -63,6 +78,8 @@ body {
   display: flex;
   padding: 0px;
   margin-bottom: 1rem;
+  width: 100vw;
+
 }
 .tabber .tabs li {
   list-style: none;
@@ -87,7 +104,7 @@ body {
   display: none;
 }
 
-/* Scroll */
+
 .arrow-up {
   position: fixed;
   bottom: 50px;

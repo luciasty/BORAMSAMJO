@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
         <!--css js 링크-->
-        <link href="../static/main_2.css" rel="stylesheet"/>
+        <link href="../static/all_diary.css" rel="stylesheet"/>
         <script async src="../static/main_2.js"></script>
         <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,6 +84,33 @@
           <li><a class="tab-trigger" onclick="location.href='main_2.html'">나의 일기장</a></li>
           <li><a class="tab-trigger" href="progress.html">분노 매니저</a></li>
         </ul>
+        <!-- clock -->
+        <div class="flex-container">
+        <h1 id="clock" class="clock">clock</h1>
+        <script>
+          var Target = document.getElementById("clock");
+        function clock() {
+            var time = new Date();
+
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            Target.innerText =
+            `${month + 1}월 ${date}일 ${week[day]}요일 ` +
+            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+        }
+        clock();
+        setInterval(clock, 1000); // 1초마다 실행
+        </script>
+        </div>
+
         <!-- tab -->
         <div class="tab-content">
           <div class="tab-panel active" content-id="tab1">

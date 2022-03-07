@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!--css js 링크-->
+        <link href="../static/main_2.css" rel="stylesheet"/>
+        <script async src="../static/main_2.js"></script>
+        <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap" rel="stylesheet">
+        <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+            console.log(userInfo);
+            if (userInfo) {
+                chkAuthor(parseInt(userInfo['author']), userInfo['name']);
+            } else {
+                chkAuthor(0, "");
+            }
+        });
+
+        function chkAuthor(num, name) {
+            let tmp_html = ``;
+            let head_html = ``;
+
+            if (num === 1) {
+                head_html = `
+                            <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
+                `;
+                tmp_html = `
+                            <div class="form-group row">
+                                <button type="button" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</button>
+                            </div>
+                `;
+                $('#txtHead').append(head_html);
+                $('#btnFooter').append(tmp_html);
+            } else if (num === 2) {
+                head_html = `
+                            <label class="col-form-label font-contents">사용자 ${name}님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+            } else if (num === 0) {
+                head_html = `
+                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+                $('.mybtn').text('로그인 하기');
+            }
+        }
+
+        function btnAdmin() {
+            window.location.href = '/admin';
+        }
+
+        function btnLogout() {
+            window.location.href = '/';
+        }
+
+    </script>
+</head>
+<body>
+    <!-- title -->
+    <div class="title">
+        <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+    </div>
+    <!-- main -->
+    <div class="tabber">
+        <ul class="tabs">
+          <li><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
+          <li class="active"><a class="tab-trigger" href="#tab2">나의 일기장</a></li>
+          <li><a class="tab-trigger" href="progress.html">나의 분노치</a></li>
+        </ul>
+        <!-- tab -->
+        <div class="tab-content">
+          <div class="tab-panel " content-id="tab1">
+            <h3>모두의 일기장</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam harum sit error. Ea, autem fugit atque minus voluptatem illo ex provident dolorem enim, suscipit quam modi voluptatibus iusto aperiam architecto?</p>
+          </div>
+          <div class="tab-panel active" content-id="tab2">
+            <ol class="articles">
+                <li class="articles__article" style="--animation-order:1"><a class="articles__link">
+                    <div class="articles__content articles__content--lhs">
+                      <h2 class="articles__title">일기 작성하기</h2>
+                    </div>
+                    <div class="articles__content articles__content--rhs" aria-hidden="true">
+                      <h2 class="articles__title">일기 작성하기</h2>
+                    </div></a></li>
+                <li class="articles__article" style="--animation-order:2"><a class="articles__link">
+                    <div class="articles__content articles__content--lhs">
+                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                      <div class="articles__footer">
+                        <p>Chocolates</p>
+                        <button class="show">show</button>
+                      </div>
+                    </div>
+                    <div class="articles__content articles__content--rhs" aria-hidden="true">
+                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                      <div class="articles__footer">
+                        <p>Chocolates</p>
+                        <button class="show">show</button>
+                      </div>
+                    </div></a></li>
+                <li class="articles__article" style="--animation-order:3"><a class="articles__link">
+                    <div class="articles__content articles__content--lhs">
+                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                      <div class="articles__footer">
+                        <p>Puddings</p>
+                        <button>show</button>
+                      </div>
+                    </div>
+                    <div class="articles__content articles__content--rhs" aria-hidden="true">
+                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                      <div class="articles__footer">
+                        <p>Puddings</p>
+                        <button class="show">show</button>
+                      </div>
+                    </div></a></li>
+              </ol>
+            </div>
+          <div class="tab-panel" content-id="tab3">
+            <h3>나의 분노치</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat consequatur perferendis eos minima delectus repellendus dolorem debitis facilis? A expedita nemo placeat, adipisci voluptas repellendus quo libero suscipit nulla hic!</p>
+          </div>
+        </div>
+      </div>
+    <!-- Arrow up-->
+    <button class="arrow-up">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>

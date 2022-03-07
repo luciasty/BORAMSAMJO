@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- USER CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -35,80 +35,33 @@
         localStorage.clear();
     });
 
-   function btnGuest() {
-        localStorage.setItem("userGuest", true);
-        window.location.href = "/main";
-   }
 
-   function btnLogin() {
-        let loginId = $('#loginId').val();
-        let loginPw = $('#loginPw').val();
-
-        if(loginId === ''){
-            alert('ID를 입력해주세요.');
-            $('#loginId').focus();
-            return;
-        } else if(loginPw === '') {
-            alert('PW를 입력해주세요.');
-            $('#loginPw').focus();
-            return;
-        }
-
-        $.ajax({
-            type: "POST",
-            url: "/login",
-            data: {
-                loginId_give: loginId,
-                loginPw_give: loginPw
-            },
-            success: function (response) { // 성공하면
-                alert(response["msg"]);
-
-                const userInfo = response['user_info'];
-                localStorage.setItem("userInfo", JSON.stringify(userInfo));
-                window.location.href = '/main';
-            },
-            error: function () {
-                alert("ID 또는 PW를 잘못 입력했습니다!\n다시 입력해 주세요!");
-                $('#loginId').val('');
-                $('#loginPw').val('');
-                $('#loginId').focus();
-            }
-        })
    }
 </script>
 <body>
 <style>
-    body{background-image: url("home.jpg");
-        width: 100%;
-        height: 100vh;
-        vertical-align: middle;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+
     .ib-title {
 
-    width: 100%;
-    margin: auto auto auto 25%;
+    width: 80%;
+    margin: auto auto auto 30%;
     display: block;
     border: 0px solid #000000;
     position: absolute;
     top: 35%;
-
-
 
 }
 
     </style>
 
         <div class="ib-title">
-             <h1 class="display-4"><span style="font-size:2.5em; color:#C5003D;"><strong>MY</strong></span>
-                                 <span style="font-size:2.5em;  color:#CE962C; background-color:#C5003D;"><I>ANGRY </I></span>
-                                 <span style=" font-size:2.5em; color:#C5003D;"><strong>DIARY</strong></span></h1>
-            <p class="lead"><span style="font-size:2em; color:#C5003D; margin: auto auto auto 3.5%; width: 30%;">#짜증나 #메탈승리 #화풀이 #감정쓰레기통 #스트레스해소</span></p>
+             <h1 class="display-4"><span style="font-size:2em; color:#C5003D;"><strong>MY</strong></span>
+                                 <span style="font-size:2em;  color:#CE962C; background-color:#C5003D;"><I>ANGRY </I></span>
+                                 <span style=" font-size:2em; color:#C5003D;"><strong>DIARY</strong></span></h1>
+            <p class="lead"><span style="font-size:1.5em; color:#C5003D; margin: auto  auto auto 5%;"> #짜증나 #멘탈승리 #화풀이 #감정쓰레기통 #스트레스해소</span></p>
 
 
-        <div class="form-group row" style="display: flex; margin: 5% auto auto 10%; width: 50%;">
+        <div class="form-group row" style="display: flex; margin: 5% auto auto 0; width: 50%;">
 
             <a href="/login" style="border:none; height: 3.5rem; width:48%; background-color: #AF1D49" class="btn btn-success mybtn">로그인 하기</a>
         </div>

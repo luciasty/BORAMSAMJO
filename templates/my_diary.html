@@ -67,20 +67,10 @@
     </script>
 </head>
 <body>
-  <!-- logout -->
-  <div class="logout">
-    <a href="home.html">logout</a>
-  </div>
     <!-- title -->
     <div class="title">
         <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
     </div>
-    <!-- main -->
-    <div class="tabber">
-        <ul class="tabs">
-          <li><a class="tab-trigger" href="all_diary.html">모두의 일기장</a></li>
-          <li class="active"><a class="tab-trigger" href="#tab2">나의 일기장</a></li>
-          <li><a class="tab-trigger" href="progress.html">분노 매니저</a></li>
                   <!-- clock -->
         <h1 id="clock" class="clock">clock</h1>
         <script>
@@ -108,7 +98,7 @@
             </div>
           <div class="tab-panel active" content-id="tab2">
             <ol class="articles">
-                <li class="articles__article" style="--animation-order:1"><a class="articles__link write_diary" href="write_diary.html">
+                <li class="articles__article" style="--animation-order:1"><a href="write_diary" class="articles__link write_diary">
                     <div class="articles__content articles__content--lhs">
                       <h2 class="articles__title">일기 작성하기</h2>
                     </div>
@@ -239,9 +229,12 @@
         </div>
       </div>
     <!-- nav-bar-->
-     <div id="navbar">
-  <a href="#로그아웃">로그아웃</a>
-  <a href="admin.html">관리자페이지</a>
+      <div id="navbar">
+  <a href="login" onclick="btnLogout()">로그아웃</a>
+  <a href="all_diary">모두의 일기장</a>
+  <a href="my_diary" style="color: #c5003d">나의 일기장</a>
+  <a href="progress">분노 매니저</a>
+  <a href="admin">관리자 페이지</a>
     </div>
     <!-- Arrow up-->
     <button class="arrow-up">

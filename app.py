@@ -38,6 +38,10 @@ def progress():
 def my_diary():
    return render_template('my_diary.html')
 
+@app.route('/write_diary')
+def write_diary():
+   return render_template('write_diary.html')
+
 # 사용자 가입(POST) API
 @app.route('/users', methods=['POST'])
 def save_users():

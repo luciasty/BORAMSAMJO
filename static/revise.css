@@ -103,10 +103,6 @@ h2 {
   padding: 7px 20px;
   border-radius: 10px;
 }
-.write_change > a {
-  text-decoration: none;
-  color: white;
-}
 .write_delete {
   background-color: var(--tag--color);
   color: white;
@@ -124,7 +120,37 @@ h2 {
   height: 40rem;
   border-radius: 15px;
 }
+.write > textarea {
+  width: 100%;
+  height: 100%;
+  background-color: var(--orange--color);
+  border-radius: 15px;
+  border: none;
+  resize: none;
+  overflow: auto;
+  font-size: 3rem;
+  color: white;
+  font-family: 'Jua', sans-serif;
+  padding: 25px;
+}
+textarea::-webkit-scrollbar {
+  width: 15px;
+}
 
+textarea::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-image: linear-gradient(
+    180deg,
+    var(--orange--color) 0%,
+    var(--back--color) 99%
+  );
+  box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+}
 /* comment */
 .comment_box {
   position: relative;

@@ -45,7 +45,6 @@ body {
   font-size: 3.5rem;
 }
 
-
 /* clock */
 .flex-container {
   color: white;
@@ -55,14 +54,18 @@ body {
   margin-left: 80vw;
   width: 400px;
 }
-  .flex-container.flex-end{justify-content: flex-end;}
+.flex-container.flex-end {
+  justify-content: flex-end;
+}
 
 /* main */
 .tab-content {
   width: 100vw;
   overflow-y: auto;
 }
-
+.tab-trigger {
+  cursor: pointer;
+}
 .tabs {
   margin-top: 45%;
   margin-left: 10%;
@@ -79,7 +82,6 @@ body {
   padding: 0px;
   margin-bottom: 1rem;
   width: 100vw;
-
 }
 .tabber .tabs li {
   list-style: none;
@@ -103,7 +105,6 @@ body {
 .tabber .tab-panel:not(.active) {
   display: none;
 }
-
 
 .arrow-up {
   position: fixed;

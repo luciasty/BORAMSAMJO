@@ -21,7 +21,14 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
 }
-
+/* logout */
+.logout {
+  color: var(--orange--color);
+  cursor: pointer;
+}
+.logout > a {
+  text-decoration: none;
+}
 /* title */
 .title {
   text-align: right;

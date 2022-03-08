@@ -6,8 +6,8 @@
     <title>일기보기 | 보람삼조</title>
 
     <!--css js 링크-->
-    <link href="../static/read_diary.css" rel="stylesheet"/>
-    <script async src="../static/read_diary.js"></script>
+    <link href="../static/revise.css" rel="stylesheet"/>
+    <script async src="../static/revise.js"></script>
 
     <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,15 +68,13 @@
         <div class="emoticon">
             <i class="fas fa-grin-beam"></i>
             <i class="fas fa-angry"></i>
-            <button type="button" class="write_change"><a href="revise.html">수정</a></button>
+            <button type="button" class="write_change">수정중...</button>
             <button type="button" class="write_delete">삭제</button>
         </div>
     </div>
     <!-- write -->
     <div class="write">
-        <div>
-            box
-        </div>
+        <textarea class="textarea"></textarea>
     </div>
     <!-- comment -->
     <div class="comment">
@@ -89,6 +87,7 @@
             <div class="lists">
             <div class="media">
                    <p class="media-heading user_name">노경민</p>
+                   <h6 class="user_comment">Wow! this is really great.</h6>
                    <h6 class="user_comment">Wow! this is really great.</h6>
                    <button type="button" class="comment-delete-btn">수정</button>
                    <button type="button" class="comment-delete-btn">삭제</button>

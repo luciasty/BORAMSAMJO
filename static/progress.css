@@ -51,3 +51,37 @@ body::-webkit-scrollbar-thumb {
   );
   box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
 }
+
+.tabber {
+  position: relative;
+  width: 100%;
+  max-width: 768px;
+}
+.tabber .tabs {
+  display: flex;
+  padding: 0px;
+  margin-bottom: 1rem;
+  width: 100vw;
+}
+.tabber .tabs li {
+  list-style: none;
+}
+.tabber .tabs li:not(:first-child) {
+  margin-left: 0.5rem;
+}
+.tabber .tabs li a {
+  display: block;
+  padding: 6px 15px;
+  text-decoration: none;
+  border: 3px solid var(--back--color);
+  color: var(--back--color);
+  border-radius: 15px;
+}
+.tabber .tabs li.active a {
+  background-color: var(--back--color);
+  color: var(--orange--color);
+  border-radius: 15px;
+}
+.tabber .tab-panel:not(.active) {
+  display: none;
+}

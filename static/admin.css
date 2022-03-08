@@ -13,7 +13,7 @@
         margin: 0 auto -100px;
     }
 
-    footer, .push {
+    footer, push {
         border: 2px solid green;
         height: 100px;
     }
@@ -45,13 +45,28 @@
     }
 
     #showPop {
+        background-color: #CE962C;
         width: 500px;
         margin: 20px auto;
         padding: 20px;
-        border: 2px green solid;
         border-radius: 5px;
     }
 
-    th, td {
+    .th, td {
         text-align: center;
+    }
+
+
+    .table1 {
+        background-color: #835863;
+        margin: auto;
+        height: 2.5rem;
+        border-radius: 5px;
+        font-size: large;
+    }
+
+    .adminbox {
+        background-color: #CE962C;
+        height: 35rem;
+        border-radius: 5px;
     }

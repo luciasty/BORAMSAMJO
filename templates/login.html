@@ -37,7 +37,7 @@
 
    function btnGuest() {
         localStorage.setItem("userGuest", true);
-        window.location.href = "/main";
+        window.location.href = "/all_diary";
    }
 
    function btnLogin() {
@@ -66,7 +66,7 @@
 
                 const userInfo = response['user_info'];
                 localStorage.setItem("userInfo", JSON.stringify(userInfo));
-                window.location.href = '/main';
+                window.location.href = '/all_diary';
             },
             error: function () {
                 alert("ID 또는 PW를 잘못 입력했습니다!\n다시 입력해 주세요!");
@@ -107,7 +107,7 @@
         </div>
         </div>
             <div style="height: 3rem; margin: 0.3rem auto 0rem auto; width: 62%; background-color: #835863" class="guestSize" onclick="btnGuest()">
-            <label style="color: aliceblue;" class="col-form-label font-contents">Guest 입장</label>
+            <label style="padding-top:0.8rem; border:none; width:30%; font-size : 1.6vw; color: aliceblue; cursor: pointer;" class="col-form-label font-contents;">Guest 입장</label>
         </div>
     </div>>
 </body>

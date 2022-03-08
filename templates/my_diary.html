@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메이킹 챌린지 | 마이 다이어리</title>
-        <!--css js 링크-->
+
+    <title>나의 일기장 | 보람삼조</title>
+    <!--css js 링크-->
         <link href="../static/my_diary.css" rel="stylesheet"/>
         <script async src="../static/my_diary.js"></script>
         <!-- font link -->
@@ -73,6 +74,10 @@
     </script>
 </head>
 <body>
+  <!-- logout -->
+  <div class="logout">
+    <a href="home.html">logout</a>
+  </div>
     <!-- title -->
     <div class="title">
         <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
@@ -80,17 +85,13 @@
     <!-- main -->
     <div class="tabber">
         <ul class="tabs">
-          <li><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
+          <li><a class="tab-trigger" href="all_diary.html">모두의 일기장</a></li>
           <li class="active"><a class="tab-trigger" href="#tab2">나의 일기장</a></li>
           <li><a class="tab-trigger" href="progress.html">분노 매니저</a></li>
-        </ul>
-            <!-- clock -->
-        <div class="flex-container">
+                  <!-- clock -->
         <h1 id="clock" class="clock">clock</h1>
         <script>
           var Target = document.getElementById("clock");
-
-
         function clock() {
             var time = new Date();
 
@@ -103,22 +104,19 @@
             var minutes = time.getMinutes();
             var seconds = time.getSeconds();
 
-            Target.innerText =
+            Target.innerText = 
             `${month + 1}월 ${date}일 ${week[day]}요일 ` +
             `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
+                
         }
         clock();
         setInterval(clock, 1000); // 1초마다 실행
         </script>
-        </div>
-
+        </ul>
         <!-- tab -->
         <div class="tab-content">
           <div class="tab-panel " content-id="tab1">
-            <h3>모두의 일기장</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam harum sit error. Ea, autem fugit atque minus voluptatem illo ex provident dolorem enim, suscipit quam modi voluptatibus iusto aperiam architecto?</p>
-          </div>
+            </div>
           <div class="tab-panel active" content-id="tab2">
             <ol class="articles">
                 <li class="articles__article" style="--animation-order:1"><a class="articles__link write_diary" href="write_diary.html">
@@ -157,7 +155,94 @@
                         <p>Puddings</p>
                         <button class="show">show</button>
                       </div>
-                    </div></a></li>
+                    </div>
+                  </a>
+                </li>
+                <li class="articles__article" style="--animation-order:3"><a class="articles__link" href="read_diary.html">
+                  <div class="articles__content articles__content--lhs">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                      <p>Puddings</p>
+                      <button>show</button>
+                    </div>
+                  </div>
+                  <div class="articles__content articles__content--rhs" aria-hidden="true">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                      <p>Puddings</p>
+                      <button class="show">show</button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="articles__article" style="--animation-order:3"><a class="articles__link" href="read_diary.html">
+                <div class="articles__content articles__content--lhs">
+                  <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                  <div class="articles__footer">
+                    <p>Puddings</p>
+                    <button>show</button>
+                  </div>
+                </div>
+                <div class="articles__content articles__content--rhs" aria-hidden="true">
+                  <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                  <div class="articles__footer">
+                    <p>Puddings</p>
+                    <button class="show">show</button>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="articles__article" style="--animation-order:3"><a class="articles__link" href="read_diary.html">
+              <div class="articles__content articles__content--lhs">
+                <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                <div class="articles__footer">
+                  <p>Puddings</p>
+                  <button>show</button>
+                </div>
+              </div>
+              <div class="articles__content articles__content--rhs" aria-hidden="true">
+                <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                <div class="articles__footer">
+                  <p>Puddings</p>
+                  <button class="show">show</button>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="articles__article" style="--animation-order:3"><a class="articles__link" href="read_diary.html">
+            <div class="articles__content articles__content--lhs">
+              <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+              <div class="articles__footer">
+                <p>Puddings</p>
+                <button>show</button>
+              </div>
+            </div>
+            <div class="articles__content articles__content--rhs" aria-hidden="true">
+              <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+              <div class="articles__footer">
+                <p>Puddings</p>
+                <button class="show">show</button>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="articles__article" style="--animation-order:3"><a class="articles__link" href="read_diary.html">
+          <div class="articles__content articles__content--lhs">
+            <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+            <div class="articles__footer">
+              <p>Puddings</p>
+              <button>show</button>
+            </div>
+          </div>
+          <div class="articles__content articles__content--rhs" aria-hidden="true">
+            <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+            <div class="articles__footer">
+              <p>Puddings</p>
+              <button class="show">show</button>
+            </div>
+          </div>
+        </a>
+      </li>
               </ol>
             </div>
           <div class="tab-panel" content-id="tab3">

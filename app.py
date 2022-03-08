@@ -18,9 +18,9 @@ def home():
 def login():
    return render_template('login.html')
 
-@app.route('/main')
-def main():
-   return render_template('main.html')
+@app.route('/all_diary')
+def all_diary():
+   return render_template('all_diary.html')
 
 @app.route('/contact')
 def contact():

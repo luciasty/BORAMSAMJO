@@ -1,8 +1,8 @@
-<!DOCTYPE html>;
-<html lang="en" style="height: 100%">;
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
 
 <head>
-    <meta charset="UTF-8">;
+    <meta charset="UTF-8">
 
     <!--css js 링크-->
     <link href="../static/progress.css" rel="stylesheet"/>
@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>메이킹첼린지 | 통계</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">;
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">;</script>
 
      <!-- font link -->
@@ -35,6 +35,13 @@
 
 
 <body class = "bd">
+ <div class="tabber">
+        <ul class="tabs">
+          <li><a class="tab-trigger" href="all_diary.html">모두의 일기장</a></li>
+          <li><a class="tab-trigger" href="progress.html">나의 매니저</a></li>
+          <li class="active"><a class="tab-trigger" href="#tab2">분노 매니저</a></li>
+        </ul>
+ </div>
     <div class="container"></div>
         <canvas id="myChart"></canvas>
     </div>
@@ -86,7 +93,7 @@
                 <div class="chart-container" style="position: relative; height:45vw; width:45vw">
                 <div class="card" style="border:none; background-color: #CE962C">
                     <div class="card-body" style="border:none;">
-                        <canvas id="myChart1">;</canvas>
+                        <canvas id="myChart1"></canvas>
                     </div>
                     <div class="card-footer text-center text-dark" style="border:none;background-color: #CE962C">
                         <h3>왼쪽 그래프 이름</h3>
@@ -98,7 +105,7 @@
                 <div class="chart-container" style="position: relative; height:45vw; width:45vw">
                 <div class="card" style="border:none;">
                     <div class="card-body" style="border:none; background-color: #CE962C">
-                        <canvas id="myChart2">;</canvas>
+                        <canvas id="myChart2"></canvas>
                     </div>
                     <div class="card card-body text-center" style="border:none; background-color: #CE962C">
                         <h3>오른쪽 그래프 이름</h3>
@@ -137,5 +144,4 @@
     });
 </script>
 </body>
-
 </html>

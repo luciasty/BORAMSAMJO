@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>나의 일기장 | 보람삼조</title>
         <!--css js 링크-->
         <link href="../static/my_diary.css" rel="stylesheet"/>
         <script async src="../static/my_diary.js"></script>
@@ -111,13 +111,34 @@
         setInterval(clock, 1000); // 1초마다 실행
         </script>
         </ul>
-
+        <!-- 버튼 이동 -->
+        <div class="tabs2">
+          <input type="radio" id="tab2-1" name="tab-control" checked>
+          <input type="radio" id="tab2-2" name="tab-control">
+          <input type="radio" id="tab2-3" name="tab-control">  
+          <input type="radio" id="tab2-4" name="tab-control">
+          <input type="radio" id="tab2-5" name="tab-control">
+          <ul class="moves">
+            <li title="Date"><label for="tab2-1" role="button"><br><span>날짜</span></label></li>
+            <li title="Place"><label for="tab2-2" role="button"><br><span>장소</span></label></li>
+            <li title="Angry"><label for="tab2-3" role="button"><br><span>분노치</span></label></li>    
+            <li title="People"><label for="tab2-4" role="button"><br><span>대상</span></label>
+              <!-- <ul class="drop">
+                <div>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+                </div>
+              </ul> -->
+            </li>
+            <li title="Reason"><label for="tab2-5" role="button"><br><span>이유</span></label></li>
+          </ul>         
+          <div class="slider"><div class="indicator"></div></div>
+        </div>
         <!-- tab -->
         <div class="tab-content">
           <div class="tab-panel " content-id="tab1">
-            <h3>모두의 일기장</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam harum sit error. Ea, autem fugit atque minus voluptatem illo ex provident dolorem enim, suscipit quam modi voluptatibus iusto aperiam architecto?</p>
-          </div>
+            </div>
           <div class="tab-panel active" content-id="tab2">
             <ol class="articles">
                 <li class="articles__article" style="--animation-order:1"><a class="articles__link write_diary" href="write_diary.html">

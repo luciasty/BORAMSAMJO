@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>메이킹 챌린지 | 마이 다이어리</title>
         <!--css js 링크-->
         <link href="../static/my_diary.css" rel="stylesheet"/>
         <script async src="../static/my_diary.js"></script>
@@ -14,6 +14,7 @@
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -83,6 +84,35 @@
           <li class="active"><a class="tab-trigger" href="#tab2">나의 일기장</a></li>
           <li><a class="tab-trigger" href="progress.html">분노 매니저</a></li>
         </ul>
+            <!-- clock -->
+        <div class="flex-container">
+        <h1 id="clock" class="clock">clock</h1>
+        <script>
+          var Target = document.getElementById("clock");
+
+
+        function clock() {
+            var time = new Date();
+
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            Target.innerText =
+            `${month + 1}월 ${date}일 ${week[day]}요일 ` +
+            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+        }
+        clock();
+        setInterval(clock, 1000); // 1초마다 실행
+        </script>
+        </div>
+
         <!-- tab -->
         <div class="tab-content">
           <div class="tab-panel " content-id="tab1">
@@ -134,9 +164,31 @@
             </div>
         </div>
       </div>
+
+
+    <!-- nav-bar-->
+     <div id="navbar">
+  <a href="#로그아웃">로그아웃</a>
+  <a href="admin.html">관리자페이지</a>
+    </div>
+
     <!-- Arrow up-->
     <button class="arrow-up">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <script>
+    // 20px 스크롤바 생성
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+    }
+    </script>
+
 </body>
 </html>

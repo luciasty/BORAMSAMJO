@@ -19,7 +19,7 @@ def login():
    return render_template('login.html')
 
 @app.route('/all_diary')
-def main():
+def all_diary():
    return render_template('all_diary.html')
 
 @app.route('/contact')

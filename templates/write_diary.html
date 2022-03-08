@@ -96,14 +96,22 @@
             <div class="who">
                 <p>대 상</p>
                 <div class="center">
-                    <div class='radio-group'>
+                    <div class='radio-group dropdown'>
                         <label class='radio-label'>
                             <input name='who' type='radio' id='pizza' checked='own'>
                             <span class='inner-label'>본인</span>
                         </label>
-                        <label class='radio-label'>
+                        <label class='radio-label list'>
                             <input name='who' type='radio' id='others'>
-                            <span class='inner-label'>타인</span>
+                            <span class='inner-label placeholder'>타인</span>
+                            <ul class="list__ul">
+                                <li><a href="">A</a></li>
+                                <li><a href="">B</a></li>
+                                <li><a href="">C</a></li>
+                                <li><a href="">D</a></li>
+                                <li><a href="">E</a></li>
+                                <li><a href="">F</a></li>
+                            </ul>
                         </label>
                     </div>
                 </div>
@@ -114,15 +122,15 @@
                 <div class="center">
                     <div class='radio-group'>
                         <label class='radio-label'>
-                            <input name='reason' type='radio' id='pizza' checked='word'>
+                            <input name='reason' type='checkbox' id='pizza' checked='word'>
                             <span class='inner-label'>말</span>
                         </label>
                         <label class='radio-label'>
-                            <input name='reason' type='radio' id='action'>
+                            <input name='reason' type='checkbox' id='action'>
                             <span class='inner-label'>행동</span>
                         </label>
                         <label class='radio-label'>
-                            <input name='reason' type='radio' id='situation'>
+                            <input name='reason' type='checkbox' id='situation'>
                             <span class='inner-label'>상황</span>
                         </label>
                     </div>
@@ -131,14 +139,7 @@
         </div>
     <!-- write -->
         <div class="paper">
-        <div class="lines">
-          <div class="text" contenteditable spellcheck="false">
-            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
-            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
-            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
-            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.
-            Cupcake ipsum dolor sit amet liquorice fruitcake. Candy canes jelly beans sweet roll cupcake lollipop. Powder carrot cake toffee brownie. Marshmallow sweet roll donut. Chocolate cake apple pie candy canes tiramisu dragée wafer. Croissant cookie lemon drops tiramisu jelly-o donut. Sweet gummi bears ice cream.</div>
-        </div>
+         <textarea class="textarea" placeholder="내용을 입력해주세요."></textarea>
         </div>
     </div>
     <!-- button -->
@@ -148,7 +149,7 @@
             취 소
         </div>
         </a>
-        <div class="button2">
+        <div  type="submit" class="button2">
             작 성 완 료
         </div>
     </div>

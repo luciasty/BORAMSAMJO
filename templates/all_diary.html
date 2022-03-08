@@ -21,38 +21,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<<<<<<< HEAD
+
+
     <style>
-        .navbar {
-            background: hotpink;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            position: fixed;
-            width: 100%;
-            transition: transform .3s;
-        }
-        .navbar.hide {
-            transform: translateY(-100%);
-        }
         .navbar > li {
             display: inline-block;
         }
+
         .navbar > li > a {
             display: block;
             text-decoration: none;
             padding: 10px 20px;
             color: white;
         }
+
         .navbar > li > a:hover {
             background: deeppink;
         }
     </style>
-=======
->>>>>>> origin/test01
+
+
     <script>
         $(document).ready(function () {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
             console.log(userInfo);
             if (userInfo) {
                 chkAuthor(parseInt(userInfo['author']), userInfo['name']);

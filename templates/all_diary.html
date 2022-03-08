@@ -21,30 +21,38 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
-
+<<<<<<< HEAD
     <style>
+        .navbar {
+            background: hotpink;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: fixed;
+            width: 100%;
+            transition: transform .3s;
+        }
+        .navbar.hide {
+            transform: translateY(-100%);
+        }
         .navbar > li {
             display: inline-block;
         }
-
         .navbar > li > a {
             display: block;
             text-decoration: none;
             padding: 10px 20px;
             color: white;
         }
-
         .navbar > li > a:hover {
             background: deeppink;
         }
     </style>
-
-
+=======
+>>>>>>> origin/test01
     <script>
         $(document).ready(function () {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
             console.log(userInfo);
             if (userInfo) {
                 chkAuthor(parseInt(userInfo['author']), userInfo['name']);
@@ -52,11 +60,9 @@
                 chkAuthor(0, "");
             }
         });
-
         function chkAuthor(num, name) {
             let tmp_html = ``;
             let head_html = ``;
-
             if (num === 1) {
                 head_html = `
                             <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
@@ -81,17 +87,13 @@
                 $('.mybtn').text('로그인 하기');
             }
         }
-
         function btnAdmin() {
             window.location.href = '/admin';
         }
-
         function btnLogout() {
             window.location.href = '/';
         }
-
     </script>
-
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
         var last_top = 0;
@@ -105,14 +107,25 @@
             last_top = this_top;
         });
     </script>
-
 </head>
 <body>
+<nav class="navbar nav flex-column">
+    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+</nav>
     <!-- title -->
     <div class="title">
         <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
     </div>
     <!-- main -->
+    <div class="tabber">
+        <ul class="tabs">
+         <li class="active"><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
+          <li><a class="tab-trigger" href='my_diary.html'>나의 일기장</a></li>
+          <li><a class="tab-trigger" href="progress.html">분노 매니저</a></li>
+        </ul>
         <!-- clock -->
         <div class="flex-container">
         <h1 id="clock" class="clock">clock</h1>
@@ -120,26 +133,21 @@
           var Target = document.getElementById("clock");
         function clock() {
             var time = new Date();
-
             var month = time.getMonth();
             var date = time.getDate();
             var day = time.getDay();
             var week = ['일', '월', '화', '수', '목', '금', '토'];
-
             var hours = time.getHours();
             var minutes = time.getMinutes();
             var seconds = time.getSeconds();
-
             Target.innerText =
             `${month + 1}월 ${date}일 ${week[day]}요일 ` +
             `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
         }
         clock();
         setInterval(clock, 1000); // 1초마다 실행
         </script>
         </div>
-
         <!-- tab -->
         <div class="tab-content">
           <div class="tab-panel active" content-id="tab1">
@@ -191,26 +199,26 @@
                     </div></a></li>
               </ol>
           </div>
+          <div class="tab-panel" id="tab2">
+            <h3>나의 일기장</h3>
+          </div>
+          <div class="tab-panel" content-id="tab3">
+            <h3>분노 매니저</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat consequatur perferendis eos minima delectus repellendus dolorem debitis facilis? A expedita nemo placeat, adipisci voluptas repellendus quo libero suscipit nulla hic!</p>
+          </div>
         </div>
       </div>
-
     <div id="navbar">
-  <a href="login">로그아웃</a>
-  <a href="all_diary">모두의 일기장</a>
-  <a href="my_diary">나의 일기장</a>
-  <a href="progress">분노 매니저</a>
-  <a href="admin">관리자페이지</a>
+  <a href="#로그아웃">로그아웃</a>
+  <a href="admin.html">관리자페이지</a>
     </div>
-
     <!-- Arrow up-->
     <button class="arrow-up">
         <i class="fas fa-arrow-up"></i>
     </button>
-
     <script>
     // 20px 스크롤바 생성
     window.onscroll = function() {scrollFunction()};
-
     function scrollFunction() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("navbar").style.top = "0";
@@ -219,6 +227,5 @@
       }
     }
     </script>
-
 </body>
 </html>

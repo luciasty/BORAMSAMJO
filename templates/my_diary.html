@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>나의 일기장 | 보람삼조</title>
-        <!--css js 링크-->
+    <!--css js 링크-->
         <link href="../static/my_diary.css" rel="stylesheet"/>
         <script async src="../static/my_diary.js"></script>
         <!-- font link -->
@@ -14,6 +15,7 @@
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -111,30 +113,6 @@
         setInterval(clock, 1000); // 1초마다 실행
         </script>
         </ul>
-        <!-- 버튼 이동 -->
-        <div class="tabs2">
-          <input type="radio" id="tab2-1" name="tab-control" checked>
-          <input type="radio" id="tab2-2" name="tab-control">
-          <input type="radio" id="tab2-3" name="tab-control">  
-          <input type="radio" id="tab2-4" name="tab-control">
-          <input type="radio" id="tab2-5" name="tab-control">
-          <ul class="moves">
-            <li title="Date"><label for="tab2-1" role="button"><br><span>날짜</span></label></li>
-            <li title="Place"><label for="tab2-2" role="button"><br><span>장소</span></label></li>
-            <li title="Angry"><label for="tab2-3" role="button"><br><span>분노치</span></label></li>    
-            <li title="People"><label for="tab2-4" role="button"><br><span>대상</span></label>
-              <!-- <ul class="drop">
-                <div>
-                <li>A</li>
-                <li>B</li>
-                <li>C</li>
-                </div>
-              </ul> -->
-            </li>
-            <li title="Reason"><label for="tab2-5" role="button"><br><span>이유</span></label></li>
-          </ul>         
-          <div class="slider"><div class="indicator"></div></div>
-        </div>
         <!-- tab -->
         <div class="tab-content">
           <div class="tab-panel " content-id="tab1">
@@ -271,9 +249,31 @@
             </div>
         </div>
       </div>
+
+
+    <!-- nav-bar-->
+     <div id="navbar">
+  <a href="#로그아웃">로그아웃</a>
+  <a href="admin.html">관리자페이지</a>
+    </div>
+
     <!-- Arrow up-->
     <button class="arrow-up">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <script>
+    // 20px 스크롤바 생성
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+    }
+    </script>
+
 </body>
 </html>

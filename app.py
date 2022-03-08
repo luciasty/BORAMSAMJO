@@ -30,6 +30,14 @@ def contact():
 def admin():
    return render_template('admin.html')
 
+@app.route('/progress')
+def progress():
+   return render_template('progress.html')
+
+@app.route('/my_diary')
+def my_diary():
+   return render_template('my_diary.html')
+
 # 사용자 가입(POST) API
 @app.route('/users', methods=['POST'])
 def save_users():

@@ -23,25 +23,52 @@
     <!-- fontawsome link -->
     <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
     <style>
-        .bd {
-            padding-top: 13rem;
-            background-image: url("../static/background_img.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
+
+        .navbar > li {
+            display: inline-block;
         }
+
+        .navbar > li > a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .navbar > li > a:hover {
+            background: deeppink;
+        }
+
     </style>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+        var last_top = 0;
+        $(window).scroll(function () {
+            var this_top = $(this).scrollTop();
+            if (this_top > last_top) {
+                $(".navbar").addClass("hide");
+            } else {
+                $(".navbar").removeClass("hide");
+            }
+            last_top = this_top;
+        });
+    </script>
 
 </head>
 
 
 <body class = "bd">
- <div class="tabber">
-        <ul class="tabs">
-          <li><a class="tab-trigger" href="all_diary.html">모두의 일기장</a></li>
-          <li><a class="tab-trigger" href="progress.html">나의 매니저</a></li>
-          <li class="active"><a class="tab-trigger" href="#tab2">분노 매니저</a></li>
-        </ul>
- </div>
+
+    <!-- nav-bar-->
+     <div id="navbar">
+  <a href="login">로그아웃</a>
+  <a href="all_diary">모두의 일기장</a>
+  <a href="my_diary">나의 일기장</a>
+  <a href="progress">분노 매니저</a>
+  <a href="admin">관리자 페이지</a>
+    </div>
+
     <div class="container"></div>
         <canvas id="myChart"></canvas>
     </div>
@@ -143,5 +170,27 @@
         }
     });
 </script>
+    <!-- nav-bar-->
+     <div id="navbar">
+  <a href="login">로그아웃</a>
+  <a href="all_diary">모두의 일기장</a>
+  <a href="my_diary">나의 일기장</a>
+  <a href="progress">분노 매니저</a>
+  <a href="admin">관리자 페이지</a>
+    </div>
+
+    <script>
+    // 20px 스크롤바 생성
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+    }
+    </script>
+
 </body>
 </html>

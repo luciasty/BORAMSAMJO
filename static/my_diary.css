@@ -297,6 +297,18 @@ body {
   width: 100vw;
   overflow-y: auto;
 }
+
+/* clock */
+.flex-container {
+  color: white;
+  display: flex;
+  font-size: 1.2rem;
+  font-family: 'Jua', sans-serif;
+  margin-left: 80vw;
+  width: 400px;
+}
+  .flex-container.flex-end{justify-content: flex-end;}
+
 .tabs {
   margin-top: 45%;
   margin-left: 10%;
@@ -371,6 +383,30 @@ body {
   pointer-events: none;
   transition: opacity 300ms ease-in;
 }
+
+#navbar {
+          background-color: #fff;
+          position: fixed;
+          top: -50px;
+          width: 100%;
+          transition: top 0.3s;
+        }
+
+        /* navbar links */
+        #navbar a {
+          float: left;
+          display: #c5003d;
+          color: #ce962c;
+          text-align: center;
+          padding: 15px;
+          text-decoration: none;
+        }
+
+        #navbar a:hover {
+          background-color: #987c83;
+          color: #c5003d;
+        }
+
 
 .arrow-up.visible {
   opacity: 1;

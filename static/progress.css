@@ -3,6 +3,14 @@
         font-family: 'Jua', sans-serif;
     }
 
+.bd {
+            padding-top: 13rem;
+            background-image: url("../static/background_img.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+
 :root {
   --orange--color: #ce962c;
   --red--color: #c5003d;
@@ -85,3 +93,28 @@ body::-webkit-scrollbar-thumb {
 .tabber .tab-panel:not(.active) {
   display: none;
 }
+
+/* navbar 바  */
+
+ #navbar {
+          background-color: #fff;
+          position: fixed;
+          top: -50px;
+          width: 100%;
+          transition: top 0.3s;
+        }
+
+        /* navbar links */
+        #navbar a {
+          float: left;
+          display: #c5003d;
+          color: #ce962c;
+          text-align: center;
+          padding: 15px;
+          text-decoration: none;
+        }
+
+        #navbar a:hover {
+          background-color: #987c83;
+          color: #c5003d;
+        }

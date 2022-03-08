@@ -22,22 +22,8 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
+
     <style>
-        .navbar {
-            background: hotpink;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            position: fixed;
-            width: 100%;
-            transition: transform .3s;
-        }
-
-        .navbar.hide {
-            transform: translateY(-100%);
-        }
-
         .navbar > li {
             display: inline-block;
         }
@@ -53,8 +39,7 @@
             background: deeppink;
         }
     </style>
-=======
->>>>>>> origin/test01
+
 
     <script>
         $(document).ready(function () {
@@ -123,23 +108,11 @@
 
 </head>
 <body>
-<nav class="navbar nav flex-column">
-    <a class="nav-link active" href="#">Active</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link" href="#">Link</a>
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-</nav>
     <!-- title -->
     <div class="title">
         <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
     </div>
     <!-- main -->
-    <div class="tabber">
-        <ul class="tabs">
-         <li class="active"><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
-          <li><a class="tab-trigger" href='my_diary.html'>나의 일기장</a></li>
-          <li><a class="tab-trigger" href="progress.html">분노 매니저</a></li>
-        </ul>
         <!-- clock -->
         <div class="flex-container">
         <h1 id="clock" class="clock">clock</h1>
@@ -218,19 +191,15 @@
                     </div></a></li>
               </ol>
           </div>
-          <div class="tab-panel" id="tab2">
-            <h3>나의 일기장</h3>
-          </div>
-          <div class="tab-panel" content-id="tab3">
-            <h3>분노 매니저</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat consequatur perferendis eos minima delectus repellendus dolorem debitis facilis? A expedita nemo placeat, adipisci voluptas repellendus quo libero suscipit nulla hic!</p>
-          </div>
         </div>
       </div>
 
     <div id="navbar">
-  <a href="#로그아웃">로그아웃</a>
-  <a href="admin.html">관리자페이지</a>
+  <a href="login">로그아웃</a>
+  <a href="all_diary">모두의 일기장</a>
+  <a href="my_diary">나의 일기장</a>
+  <a href="progress">분노 매니저</a>
+  <a href="admin">관리자페이지</a>
     </div>
 
     <!-- Arrow up-->

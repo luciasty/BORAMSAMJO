@@ -1,8 +1,6 @@
 "use strict";
 
 
-
-
 // Show "arrow up" button when scrolling down
 const arrowUp = document.querySelector('.arrow-up');
 document.addEventListener('scroll', () => {
@@ -39,4 +37,10 @@ tabber.addEventListener("click", (e) => {
     );
   }
 });
+
+
+
+
+
+
 

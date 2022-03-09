@@ -285,3 +285,17 @@ body {
   border-radius: 15px;
   padding: 5px 45px;
 }
+
+
+.navbar > li {
+            display: inline-block;
+        }
+        .navbar > li > a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar > li > a:hover {
+            background: deeppink;
+        }

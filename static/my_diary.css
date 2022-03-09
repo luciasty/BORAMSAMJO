@@ -307,7 +307,9 @@ body {
   margin-left: 80vw;
   width: 400px;
 }
-  .flex-container.flex-end{justify-content: flex-end;}
+.flex-container.flex-end {
+  justify-content: flex-end;
+}
 
 .tabs {
   margin-top: 45%;
@@ -385,28 +387,27 @@ body {
 }
 
 #navbar {
-          background-color: #fff;
-          position: fixed;
-          top: -50px;
-          width: 100%;
-          transition: top 0.3s;
-        }
+  background-color: #fff;
+  position: fixed;
+  top: -50px;
+  width: 100%;
+  transition: top 0.3s;
+}
 
-        /* navbar links */
-        #navbar a {
-          float: left;
-          display: #c5003d;
-          color: #ce962c;
-          text-align: center;
-          padding: 15px;
-          text-decoration: none;
-        }
+/* navbar links */
+#navbar a {
+  float: left;
+  display: #c5003d;
+  color: #ce962c;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+}
 
-        #navbar a:hover {
-          background-color: #987c83;
-          color: #c5003d;
-        }
-
+#navbar a:hover {
+  background-color: #987c83;
+  color: #c5003d;
+}
 
 .arrow-up.visible {
   opacity: 1;
@@ -414,7 +415,7 @@ body {
 }
 
 /* content */
-.write_diary{
+.write_diary {
   background-color: var(--tag--color);
 }
 .articles {
@@ -481,7 +482,7 @@ body {
   text-align: center;
   justify-content: center;
 }
-.write_diary > i{
+.write_diary > i {
   font-size: 3rem;
   padding: 5px;
   margin: 20px;
@@ -489,7 +490,6 @@ body {
 .write_diary > i > h1 {
   font-size: 5rem;
 }
-
 
 .articles__link:after {
   content: '';

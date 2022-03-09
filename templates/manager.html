@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
 
     <!--css js 링크-->
-    <link href="../static/progress.css" rel="stylesheet"/>
-    <script async src="../static/progress.css"></script>
+    <link href="../static/manager.css" rel="stylesheet"/>
+    <script async src="../static/manager.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -59,8 +59,69 @@
 
 
 <body class = "bd">
+<<<<<<< HEAD:templates/manager.html
+<!--    &lt;!&ndash; nav-bar&ndash;&gt;-->
+<!--     <div id="navbar">-->
+<!--  <a href="../templates/login.html">로그아웃</a>-->
+<!--  <a href="all_diary.html">모두의 일기장</a>-->
+<!--  <a href="my_diary.html">나의 일기장</a>-->
+<!--  <a href="progress">분노 매니저</a>-->
+<!--  <a href="admin">관리자 페이지</a>-->
+<!--    </div>-->
+<!-- title -->
+<!-- <div class="title">
+    <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+</div> -->
+<!-- main -->
+<div class="tabber">
+    <ul class="tabs">
+      <li><a class="tab-trigger" href="/all_diary">모두의 일기장</a></li>
+      <li><a class="tab-trigger" href="/my_diary">나의 일기장</a></li>
+      <li class="active"><a class="tab-trigger" href="#tab3">분노 매니저</a></li>
+    </ul>
+    <!-- tab -->
+    <div class="tab-content">
+      <div class="tab-panel " content-id="tab1">
+        </div>
+      <div class="tab-panel" content-id="tab2">
+        </div>
+      <div class="tab-panel active" content-id="tab3">
+        </div>
+    </div>
+</div>
+<!-- 버튼 이동 -->
+<div class="tabs2">
+    <input type="radio" id="tab2-1" name="tab-control" checked>
+    <input type="radio" id="tab2-2" name="tab-control">
+    <ul class="moves">
+      <li title="week"><label for="tab2-1" role="button"><br><span>주간</span></label></li>
+      <p class="division">/</p>
+      <li title="month"><label for="tab2-2" role="button"><br><span>월간</span></label></li>
+    </ul>         
+  </div>
+  <!-- bar -->
+    <hr size="10" width="95%" color="#af1d49"/>
+ <!--chart  -->
+ <div class="content-block__effect">
+    <div class="progress-container">
+      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
+      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="96" data-skill="소노"></div>
+      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
+      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="88" data-skill="중노"></div>
+      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
+      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="45" data-skill="대노"></div>
+      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
+      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="53" data-skill="극대노"></div>
+    </div>
+  </div>
+
+
+
+    <!-- <div class="container"></div>
+=======
 
     <div class="container"></div>
+>>>>>>> 4ec16850c8197860cdbef96f634e86a05892618f:templates/progress.html
         <canvas id="myChart"></canvas>
     </div>
 <script>
@@ -99,8 +160,8 @@
         }
       }
     });
-</script>
-
+</script> -->
+<!-- 
     <div class="container">
         <div class="row my-3">
             <div class="col-12">
@@ -160,7 +221,7 @@
             response: false
         }
     });
-</script>
+</script> -->
     <!-- nav-bar-->
      <div id="navbar">
   <a href="login" onclick="btnLogout()">로그아웃</a>

@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>메이킹첼린지 | 통계</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">;</script>
 
      <!-- font link -->
@@ -55,10 +55,14 @@
         });
     </script>
 
+    <!--    progress bar-->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];</script>
 </head>
 
 
-<body class = "bd">
+<body>
 <!--    &lt;!&ndash; nav-bar&ndash;&gt;-->
 <!--     <div id="navbar">-->
 <!--  <a href="../templates/login.html">로그아웃</a>-->
@@ -68,98 +72,197 @@
 <!--  <a href="admin">관리자 페이지</a>-->
 <!--    </div>-->
 <!-- title -->
-<!-- <div class="title">
-    <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
-</div> -->
-<!-- main -->
-<div class="tabber">
-    <ul class="tabs">
-      <li><a class="tab-trigger" href="/all_diary">모두의 일기장</a></li>
-      <li><a class="tab-trigger" href="/my_diary">나의 일기장</a></li>
-      <li class="active"><a class="tab-trigger" href="#tab3">분노 매니저</a></li>
-    </ul>
-    <!-- tab -->
-    <div class="tab-content">
-      <div class="tab-panel " content-id="tab1">
-        </div>
-      <div class="tab-panel" content-id="tab2">
-        </div>
-      <div class="tab-panel active" content-id="tab3">
-        </div>
+<!-- title -->
+    <div class="title">
+        <a href="/all_diary"><h1>MY<span> ANGRY </span>DIARY</h1></a>
     </div>
-</div>
-<!-- 버튼 이동 -->
-<div class="tabs2">
-    <input type="radio" id="tab2-1" name="tab-control" checked>
-    <input type="radio" id="tab2-2" name="tab-control">
-    <ul class="moves">
-      <li title="week"><label for="tab2-1" role="button"><br><span>주간</span></label></li>
-      <p class="division">/</p>
-      <li title="month"><label for="tab2-2" role="button"><br><span>월간</span></label></li>
-    </ul>         
-  </div>
-  <!-- bar -->
-    <hr size="10" width="95%" color="#af1d49"/>
- <!--chart  -->
- <div class="content-block__effect">
-    <div class="progress-container">
-      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
-      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="96" data-skill="소노"></div>
-      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
-      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="88" data-skill="중노"></div>
-      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
-      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="45" data-skill="대노"></div>
-      <!--progress bar (with large bottom offset and values aligned according progress bar width)-->
-      <div class="progress-bar progress-bar--lg-offset progress-bar--aligned-values" data-effect="3" data-value="53" data-skill="극대노"></div>
-    </div>
-  </div>
+    <!-- main -->
+    <div class="tabber">
+        <ul class="tabs">
+          <li><a class="tab-trigger" href="/all_diary">모두의 일기장</a></li>
+          <li><a class="tab-trigger" href="/my_diary">나의 일기장</a></li>
+          <li class="active"><a class="tab-trigger" href="#tab3">분노 매니저</a></li>
+                  <!-- clock -->
+        <h1 id="clock" class="clock">clock</h1>
+        <script>
+          var Target = document.getElementById("clock");
+        function clock() {
+            var time = new Date();
 
+            var month = time.getMonth();
+            var date = time.getDate();
+            var day = time.getDay();
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
 
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
 
-    <!-- <div class="container"></div>
-=======
+            Target.innerText =
+            `${month + 1}월 ${date}일 ${week[day]}요일 ` +
+            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 
-    <div class="container"></div>
->>>>>>> 4ec16850c8197860cdbef96f634e86a05892618f:templates/progress.html
-        <canvas id="myChart"></canvas>
-    </div>
-<script>
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['#$$%$!', '시무룩', '어지러워', '???', '딮빡'],
-        datasets: [{
-          label: '',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            '#CE962C',
-            '#64CE2C',
-            '#962CCE',
-            '#2C64CE',
-            '#CE2C64'
-          ],
-          borderColor: [
-            '#000000',
-            '#64CE2C',
-            '#962CCE',
-            '#2C64CE',
-            '#CE2C64',
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-            }
-          }]
         }
-      }
-    });
-</script> -->
+        clock();
+        setInterval(clock, 1000); // 1초마다 실행
+        </script>
+        </ul>
+        <div class="tab-panel active" content-id="tab3">
+            <!-- 주/월 이동 -->
+            <ul class="tabs2" role="tablist">
+                <li>
+                    <input type="radio" name="tabs2" id="tab1" checked/>
+                    <label for="tab1"
+                           role="tab"
+                           aria-selected="true"
+                           aria-controls="panel1"
+                           tabindex="0">주간</label>
+                    <div id="tab-content1"
+                         class="tab-content"
+                         role="tabpanel"
+                         aria-labelledby="description"
+                         aria-hidden="false">
+                        <hr class="hr1" />
+                        <p class="week_title">3월 1째주</p>
+                        <div class="main">
+                        <div id="progressbar" class="examples">
+                            <div class="cssProgress">
+                                <span class="progress_title">소노</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar" data-percent="75" style="width: 75%;">
+                                        <span class="cssProgress-label">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cssProgress">
+                                <span class="progress_title">중노</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar cssProgress-info" data-percent="65" style="width: 65%;">
+                                        <span class="cssProgress-label">65%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cssProgress">
+                                <span class="progress_title">대노</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar cssProgress-danger" data-percent="55"
+                                         style="width: 55%;">
+                                        <span class="cssProgress-label">55%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cssProgress">
+                                <span class="progress_title">극대노</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar cssProgress-success" data-percent="45"
+                                         style="width: 45%;">
+                                        <span class="cssProgress-label">45%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <hr class="hr2" />
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="tabs2" id="tab2"/>
+                    <label for="tab2"
+                           role="tab"
+                           aria-selected="false"
+                           aria-controls="panel2"
+                           tabindex="0">월간</label>
+                    <div id="tab-content2"
+                         class="tab-content2"
+                         role="tabpanel"
+                         aria-labelledby="specification"
+                         aria-hidden="true">
+                        <div id="progressbar2" class="progresses">
+                            <hr class="hr3" />
+                            <div class="cssProgress">
+                                <span class="month_title">10월</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" style="width: 30%;"></div>
+                                    <div class="cssProgress-bar cssProgress-danger" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" style="width: 25%;"></div>
+                                    <div class="cssProgress-bar cssProgress-success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" style="width: 20%;"></div>
+                                    <div class="cssProgress-bar cssProgress-warning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                            <div class="cssProgress">
+                                <span class="month_title">11월</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55" style="width: 55%;"></div>
+                                    <div class="cssProgress-bar cssProgress-danger" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" style="width: 25%;"></div>
+                                    <div class="cssProgress-bar cssProgress-success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" style="width: 20%;"></div>
+                                    <div class="cssProgress-bar cssProgress-warning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            <div class="cssProgress">
+                                <span class="month_title">12월</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" style="width: 10%;"></div>
+                                    <div class="cssProgress-bar cssProgress-danger" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5" style="width: 5%;"></div>
+                                    <div class="cssProgress-bar cssProgress-success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" style="width: 40%;"></div>
+                                    <div class="cssProgress-bar cssProgress-warning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                            <div class="cssProgress">
+                                <span class="month_title">1월</span>
+                                <div class="progress2">
+                                    <div class="cssProgress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 0%;"></div>
+                                    <div class="cssProgress-bar cssProgress-danger" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" style="width: 30%;"></div>
+                                    <div class="cssProgress-bar cssProgress-success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="15" style="width: 15%;"></div>
+                                    <div class="cssProgress-bar cssProgress-warning" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55" style="width: 55%;"></div>
+                                </div>
+                            </div>
+                           <hr class="hr4" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+ <!--chart  -->
+<!--    <div class="container"></div>-->
+<!--        <canvas id="myChart"></canvas>-->
+<!--    </div>-->
+<!--<script>-->
+<!--    var ctx = document.getElementById('myChart');-->
+<!--    var myChart = new Chart(ctx, {-->
+<!--      type: 'bar',-->
+<!--      data: {-->
+<!--        labels: ['#$$%$!', '시무룩', '어지러워', '???', '딮빡'],-->
+<!--        datasets: [{-->
+<!--          label: '',-->
+<!--          data: [12, 19, 3, 5, 2, 3],-->
+<!--          backgroundColor: [-->
+<!--            '#CE962C',-->
+<!--            '#64CE2C',-->
+<!--            '#962CCE',-->
+<!--            '#2C64CE',-->
+<!--            '#CE2C64'-->
+<!--          ],-->
+<!--          borderColor: [-->
+<!--            '#000000',-->
+<!--            '#64CE2C',-->
+<!--            '#962CCE',-->
+<!--            '#2C64CE',-->
+<!--            '#CE2C64',-->
+<!--          ],-->
+<!--          borderWidth: 1-->
+<!--        }]-->
+<!--      },-->
+<!--      options: {-->
+<!--        scales: {-->
+<!--          yAxes: [{-->
+<!--            ticks: {-->
+<!--              beginAtZero: true,-->
+<!--            }-->
+<!--          }]-->
+<!--        }-->
+<!--      }-->
+<!--    });-->
+<!--</script> -->
 <!-- 
     <div class="container">
         <div class="row my-3">

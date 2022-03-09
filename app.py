@@ -30,9 +30,9 @@ def contact():
 def admin():
    return render_template('admin.html')
 
-@app.route('/progress')
+@app.route('/manager')
 def progress():
-   return render_template('progress.html')
+   return render_template('manager.html')
 
 @app.route('/my_diary')
 def my_diary():

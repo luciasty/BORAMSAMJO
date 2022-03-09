@@ -16,9 +16,18 @@
     
 </head>
 <body>
+     <!-- 대상선택 : 타인 드롭박스 -->
+            <script>
+              function show1(){
+              document.getElementById('other').style.display ='none';
+              }
+              function show2(){
+              document.getElementById('other').style.display = 'block';
+              }
+            </script>
     <!-- title -->
     <div class="title">
-        <h1>MY<span> ANGRY </span>DIARY</h1>
+        <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
     </div>
     <!-- bar -->
     <div class="bar">
@@ -96,23 +105,24 @@
             <div class="who">
                 <p>대 상</p>
                 <div class="center">
-                    <div class='radio-group dropdown'>
-                        <label class='radio-label'>
-                            <input name='who' type='radio' id='pizza' checked='own'>
+                    <div class='radio-group'>
+                         <label class='radio-label'>
+                            <input name='who' type='radio' id='pizza' value="igotnone" onClick="show1()" checked='own'>
                             <span class='inner-label'>본인</span>
                         </label>
-                        <label class='radio-label list'>
-                            <input name='who' type='radio' id='others'>
-                            <span class='inner-label placeholder'>타인</span>
-                            <ul class="list__ul">
-                                <li><a href="">A</a></li>
-                                <li><a href="">B</a></li>
-                                <li><a href="">C</a></li>
-                                <li><a href="">D</a></li>
-                                <li><a href="">E</a></li>
-                                <li><a href="">F</a></li>
-                            </ul>
+                        <label class='radio-label'>
+                            <input name='who' type='radio' id='Others' value="igottwo" onClick="show2()">
+                            <span class='inner-label'>타인</span>
                         </label>
+                      <div class="dropdown" id="other">
+                          <button class="dropbtn">인물 선택 ▾</button>
+                          <div class="dropdown-content">
+                            <a href="#">A</a>
+                            <a href="#">B</a>
+                            <a href="#">C</a>
+                            <a href="#">D</a>
+                          </div>
+                      </div>
                     </div>
                 </div>
             </div>

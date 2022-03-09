@@ -32,7 +32,7 @@
         $(document).ready(function () {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
             const head_html = `<label class="col-form-label font-contents">관리자 ${userInfo['name']}님 환영합니다!</label>`;
-            const tmp_html = `<button type="button" onclick="btnMain()" class="btn btn-success mybtn">메인 화면</button>`;
+            const tmp_html = `<button type="button" onclick="btnMain()" class="btn btn-success mybtn">모두의 다이어리</button>`;
             $('#txtHead').append(head_html);
             $('#btnFooter').append(tmp_html);
 
@@ -227,7 +227,7 @@
         }
 
         function btnMain(){
-            window.location.href = '/main';
+            window.location.href = '/all_diary';
         }
     </script>
 </head>

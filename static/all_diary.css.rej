@@ -1,0 +1,10 @@
+diff a/static/all_diary.css b/static/all_diary.css	(rejected hunks)
+@@ -73,7 +73,7 @@
+   font-family: 'Jua', sans-serif;
+ }
+ .tabber {
+-  position: absolute;
++  position: relative;
+   width: 100%;
+   max-width: 768px;
+ }

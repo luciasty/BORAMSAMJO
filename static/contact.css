@@ -6,7 +6,7 @@
 
     .font-contents {
         font-size: 25px;
-        width: 120px;
+        width: 100%;
     }
 
 
@@ -18,9 +18,30 @@
     }
 
     .joinSize {
-        width: 100%;
-        height: 50px;
-        background-color: forestgreen;
+        width: 62%;
+        height: 62%;
+        background-color: #AF1D49;
         text-align: center;
+        margin: 10% auto 0.5% auto;
+    }
+
+    .yellowbox {
+        height:20%;
+        width: 62%;
+        margin: 0rem auto 0rem auto;
+        padding: 1% 0rem 3% 0rem;
+        background-color: #CE962C;
+    }
+
+    .form-group-row {
+        padding: 3% 6% 0% 6%;
+        color:white;
+    }
+
+    .form-control{
+       background-color: #CE962C;
+       border-radius: 0.5rem;
+       border: 0.3rem solid #835863;
+
     }
 

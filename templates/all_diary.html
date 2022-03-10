@@ -4,9 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의 일기장|보람삼조</title>
+    <!-- fontawsome link -->
+    <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
     <!--css js 링크-->
     <link href="../static/all_diary.css" rel="stylesheet"/>
-    <script async src="../static/main_2.js"></script>
+    <script async src="../static/all_diary.js"></script>
     <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,123 +93,123 @@
 <body>
 <!-- title -->
 <div class="title">
-    <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+    <a href="all_diary"><h1>MY<span> ANGRY </span>DIARY</h1></a>
 </div>
 <!-- main -->
 <div class="tabber">
     <ul class="tabs">
         <li class="active"><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
-        <li><a class="tab-trigger" href='/my_diary'>나의 일기장</a></li>
+        <li><a class="tab-trigger" href="/my_diary">나의 일기장</a></li>
         <li><a class="tab-trigger" href="/manager">분노 매니저</a></li>
-    </ul>
-</div>
-<!-- clock -->
-<div class="flex-container">
-    <h1 id="clock" class="clock">clock</h1>
-    <script>
-        var Target = document.getElementById("clock");
+        <!-- clock -->
+            <h1 id="clock" class="clock">clock</h1>
+            <script>
+                var Target = document.getElementById("clock");
 
-        function clock() {
-            var time = new Date();
-            var month = time.getMonth();
-            var date = time.getDate();
-            var day = time.getDay();
-            var week = ['일', '월', '화', '수', '목', '금', '토'];
-            var hours = time.getHours();
-            var minutes = time.getMinutes();
-            var seconds = time.getSeconds();
-            Target.innerText =
-                `${month + 1}월 ${date}일 ${week[day]}요일 ` +
-                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-        }
+                function clock() {
+                    var time = new Date();
+                    var month = time.getMonth();
+                    var date = time.getDate();
+                    var day = time.getDay();
+                    var week = ['일', '월', '화', '수', '목', '금', '토'];
+                    var hours = time.getHours();
+                    var minutes = time.getMinutes();
+                    var seconds = time.getSeconds();
+                    Target.innerText =
+                        `${month + 1}월 ${date}일 ${week[day]}요일 ` +
+                        `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                }
 
-        clock();
-        setInterval(clock, 1000); // 1초마다 실행
-    </script>
-</div>
-<!-- tab -->
-<div class="tab-content">
-    <div class="tab-panel active" content-id="tab1">
-        <ol class="articles">
-            <li class="articles__article" style="--animation-order:2"><a class="articles__link">
-                <div class="articles__content articles__content--lhs">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Chocolates</p>
-                        <button class="show">show</button>
-                    </div>
-                </div>
-                <div class="articles__content articles__content--rhs" aria-hidden="true">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Chocolates</p>
-                        <button class="show">show</button>
-                    </div>
-                </div>
-            </a></li>
-            <li class="articles__article" style="--animation-order:3"><a class="articles__link">
-                <div class="articles__content articles__content--lhs">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button>show</button>
-                    </div>
-                </div>
-                <div class="articles__content articles__content--rhs" aria-hidden="true">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button class="show">show</button>
-                    </div>
-                </div>
-            </a></li>
-            <li class="articles__article" style="--animation-order:3"><a class="articles__link">
-                <div class="articles__content articles__content--lhs">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button>show</button>
-                    </div>
-                </div>
-                <div class="articles__content articles__content--rhs" aria-hidden="true">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button class="show">show</button>
-                    </div>
-                </div>
-            </a></li>
-        </ol>
+                clock();
+                setInterval(clock, 1000); // 1초마다 실행
+            </script>
+        </ul>
     </div>
-</div>
-<!-- 네비게이션바-->
-<div id="navbar">
-    <footer class="footer">
-    <div style="display:flex" id="btnFooter">
-        <div class="form-group row">
-            <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+    <!-- tab -->
+    <div class="tab-content">
+        <div class="tab-panel active" content-id="tab1">
+            <ol class="articles">
+                <li class="articles__article" style="--animation-order:2"><a class="articles__link">
+                    <div class="articles__content articles__content--lhs">
+                        <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                        <div class="articles__footer">
+                            <p>Chocolates</p>
+                            <button class="show">show</button>
+                        </div>
+                    </div>
+                    <div class="articles__content articles__content--rhs" aria-hidden="true">
+                        <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                        <div class="articles__footer">
+                            <p>Chocolates</p>
+                            <button class="show">show</button>
+                        </div>
+                    </div>
+                </a></li>
+                <li class="articles__article" style="--animation-order:3"><a class="articles__link">
+                    <div class="articles__content articles__content--lhs">
+                        <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                        <div class="articles__footer">
+                            <p>Puddings</p>
+                            <button>show</button>
+                        </div>
+                    </div>
+                    <div class="articles__content articles__content--rhs" aria-hidden="true">
+                        <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                        <div class="articles__footer">
+                            <p>Puddings</p>
+                            <button class="show">show</button>
+                        </div>
+                    </div>
+                </a></li>
+                <li class="articles__article" style="--animation-order:3"><a class="articles__link">
+                    <div class="articles__content articles__content--lhs">
+                        <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                        <div class="articles__footer">
+                            <p>Puddings</p>
+                            <button>show</button>
+                        </div>
+                    </div>
+                    <div class="articles__content articles__content--rhs" aria-hidden="true">
+                        <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                        <div class="articles__footer">
+                            <p>Puddings</p>
+                            <button class="show">show</button>
+                        </div>
+                    </div>
+                </a></li>
+            </ol>
         </div>
     </div>
-</footer>
-</div>
-<!-- Arrow up-->
-<button class="arrow-up">
-    <i class="fas fa-arrow-up"></i>
-</button>
-<script>
-    // 20px 스크롤바 생성
-    window.onscroll = function () {
-        scrollFunction()
-    };
+    <!-- 네비게이션바-->
+    <div id="navbar">
+        <footer class="footer">
+            <div style="display:flex" id="btnFooter">
+                <div class="form-group row">
+                    <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+                    <a href="all_diary">모두의 일기장</a>
+                    <a href="my_diary">나의 일기장</a>
+                    <a href="manager">분노 매니저</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // 20px 스크롤바 생성
+        window.onscroll = function () {
+            scrollFunction()
+        };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("navbar").style.top = "0";
-        } else {
-            document.getElementById("navbar").style.top = "-50px";
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-50px";
+            }
         }
-    }
-</script>
-
+    </script>
+    <!-- Arrow up-->
+    <button class="arrow-up">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 </body>
 </html>

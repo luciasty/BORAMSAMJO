@@ -20,14 +20,14 @@ body{background-image: url("home.jpg");
 .title {
   text-align: center;
   line-height:1.5em;
-  padding-top: 15%;
+  padding-top: 14%;
   position: static;
 }
 
 .title > a {
   text-decoration: ;
   font-family: 'Roboto', sans-serif;
-  font-size: 4em;
+  font-size: 4.5em;
   color: var(--red--color);
 }
 
@@ -35,8 +35,9 @@ body{background-image: url("home.jpg");
   font-family: 'Roboto Condensed', sans-serif;
   background-color: var(--red--color);
   color: var(--orange--color);
-  margin-right: -4px;
-  font-size: 8rem;
+  margin-right: -8px;
+  font-size: 5.5rem;
+  vertical-align: 21px;
 }
 
 .tag_title {
@@ -46,8 +47,7 @@ body{background-image: url("home.jpg");
 
   color:#C5003D;
   position: relative;
-  top:0%;
-
+  top:-2%;
 }
 
 /* buttons */
@@ -55,7 +55,7 @@ body{background-image: url("home.jpg");
   width: 30%;
   height: 3.5rem;
   border-radius: 10px;
-  margin: 5% auto auto auto;
+  margin: 4% auto auto auto;
   display: grid;
   color: white;
   background-color: #AF1D49;

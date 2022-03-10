@@ -22,6 +22,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <style>
+        .navbar {
+            background: hotpink;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: fixed;
+            width: 100%;
+            transition: transform .3s;
+        }
+        .navbar.hide {
+            transform: translateY(-100%);
+        }
+        .navbar > li {
+            display: inline-block;
+        }
+        .navbar > li > a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar > li > a:hover {
+            background: deeppink;
+        }
+    </style>
+
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+        var last_top = 0;
+        $(window).scroll(function () {
+            var this_top = $(this).scrollTop();
+            if (this_top > last_top) {
+                $(".navbar").addClass("hide");
+            } else {
+                $(".navbar").removeClass("hide");
+            }
+            last_top = this_top;
+        });
+    </script>
+
+
     <script>
         $(document).ready(function () {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -254,11 +298,20 @@
     <!-- nav-bar-->
       <div id="navbar">
   <a href="login" onclick="btnLogout()">로그아웃</a>
-  <a href="all_diary">모두의 일기장</a>
-  <a href="my_diary" style="color: #c5003d">나의 일기장</a>
-  <a href="progress">분노 매니저</a>
   <a href="admin">관리자 페이지</a>
     </div>
+
+    <script>
+    // 20px 스크롤바 생성
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+    }
+    </script>
     <!-- Arrow up-->
     <button class="arrow-up">
         <i class="fas fa-arrow-up"></i>

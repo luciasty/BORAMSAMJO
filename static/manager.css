@@ -431,3 +431,33 @@ p.link a {
 p.link a:hover {
   /*background-color: #522764;*/
 }
+
+/*chart*/
+#chart-container{
+  width: 80%;
+  margin: 15px auto;
+}
+.place_title, .reason_title{
+  margin: 3% 2%;
+  font-size: 2rem;
+}
+.donut_title{
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+.donut_content{
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+.canvas{
+  justify-content: left;
+  font-family: 'Jua', sans-serif;
+  width: 1080px !important;
+  height: 545px !important;
+  display: inline !important;
+  margin: 0 -180px 50px -189px;
+}

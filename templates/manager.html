@@ -13,7 +13,7 @@
     <title>메이킹첼린지 | 통계</title>
 <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
 <!--    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">;</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
      <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,7 @@
 
     <!-- fontawsome link -->
     <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
+
     <style>
 
         .navbar > li {
@@ -162,7 +163,79 @@
                             </div>
                         </div>
                         </div>
-                        <hr class="hr2" />
+                        <hr class="hr2"/>
+                        <div class="donut-container">
+                            <div>
+                                <div class="donut_title">
+                                    <h2 class="place_title">장소</h2>
+                                    <h2 class="reason_title">이유</h2>
+                                </div>
+                                <div class="donut_content">
+                                    <canvas class="canvas" id="myChart1"></canvas>
+                                    <canvas class="canvas" id="myChart2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            // chart1
+                            var ctx = document.getElementById("myChart1").getContext('2d');
+                            var myChart1 = new Chart(ctx, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: ["집", "학교", "직장", "모임", "기타"],
+                                    datasets: [{
+                                        backgroundColor: [
+                                            "#2ecc71",
+                                            "#3498db",
+                                            "#9b59b6",
+                                            "#f1c40f",
+                                            "#e74c3c",
+                                        ],
+                                        data: [12, 19, 3, 17, 28],
+                                    }]
+                                },
+                                options: {
+                                    legend: {
+                                        display: true,
+                                        position: 'bottom',
+                                        labels:{
+                                            boxWidth: 20,
+                                            fontColor: '#fff',
+                                            fontSize: 35,
+                                            fontFamily: 'Jua'
+                                        }
+                                    }
+                                }
+                                });
+                            //    chart2
+                            var ctx2 = document.getElementById("myChart2").getContext('2d');
+                            var myChart2 = new Chart(ctx2, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: ["말", "행동", "상황"],
+                                    datasets: [{
+                                        backgroundColor: [
+                                            "#2ecc71",
+                                            "#3498db",
+                                            "#9b59b6",
+                                        ],
+                                        data: [12, 19, 3]
+                                    }]
+                                },
+                                options: {
+                                    legend: {
+                                        display: true,
+                                        position: 'bottom',
+                                        labels: {
+                                            boxWidth: 20,
+                                            fontColor: '#fff',
+                                            fontSize: 35,
+                                            fontFamily: 'Jua'
+                                        }
+                                    },
+                                }
+                            });
+                        </script>
                     </div>
                 </li>
                 <li>
@@ -216,114 +289,84 @@
                                 </div>
                             </div>
                            <hr class="hr4" />
+                            <div class="donut-container">
+                            <div>
+                                <div class="donut_title">
+                                    <h2 class="place_title">장소</h2>
+                                    <h2 class="reason_title">이유</h2>
+                                </div>
+                                <div class="donut_content">
+                                    <canvas class="canvas" id="myChart3"></canvas>
+                                    <canvas class="canvas" id="myChart4"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            // chart1
+                            var ctx3 = document.getElementById("myChart3").getContext('2d');
+                            var myChart3 = new Chart(ctx3, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: ["집", "학교", "직장", "모임", "기타"],
+                                    datasets: [{
+                                        backgroundColor: [
+                                            "#2ecc71",
+                                            "#3498db",
+                                            "#9b59b6",
+                                            "#f1c40f",
+                                            "#e74c3c",
+                                        ],
+                                        data: [12, 19, 3, 17, 28],
+                                    }]
+                                },
+                                options: {
+                                    legend: {
+                                        display: true,
+                                        position: 'bottom',
+                                        labels:{
+                                            boxWidth: 20,
+                                            fontColor: '#fff',
+                                            fontSize: 35,
+                                            fontFamily: 'Jua'
+                                        }
+                                    }
+                                }
+                                });
+                            //    chart2
+                            var ctx4 = document.getElementById("myChart4").getContext('2d');
+                            var myChart4 = new Chart(ctx4, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: ["말", "행동", "상황"],
+                                    datasets: [{
+                                        backgroundColor: [
+                                            "#2ecc71",
+                                            "#3498db",
+                                            "#9b59b6",
+                                        ],
+                                        data: [12, 19, 3]
+                                    }]
+                                },
+                                options: {
+                                    legend: {
+                                        display: true,
+                                        position: 'bottom',
+                                        labels: {
+                                            boxWidth: 20,
+                                            fontColor: '#fff',
+                                            fontSize: 35,
+                                            fontFamily: 'Jua'
+                                        }
+                                    },
+                                }
+                            });
+                        </script>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
     </div>
- <!--chart  -->
-<!--    <div class="container"></div>-->
-<!--        <canvas id="myChart"></canvas>-->
-<!--    </div>-->
-<!--<script>-->
-<!--    var ctx = document.getElementById('myChart');-->
-<!--    var myChart = new Chart(ctx, {-->
-<!--      type: 'bar',-->
-<!--      data: {-->
-<!--        labels: ['#$$%$!', '시무룩', '어지러워', '???', '딮빡'],-->
-<!--        datasets: [{-->
-<!--          label: '',-->
-<!--          data: [12, 19, 3, 5, 2, 3],-->
-<!--          backgroundColor: [-->
-<!--            '#CE962C',-->
-<!--            '#64CE2C',-->
-<!--            '#962CCE',-->
-<!--            '#2C64CE',-->
-<!--            '#CE2C64'-->
-<!--          ],-->
-<!--          borderColor: [-->
-<!--            '#000000',-->
-<!--            '#64CE2C',-->
-<!--            '#962CCE',-->
-<!--            '#2C64CE',-->
-<!--            '#CE2C64',-->
-<!--          ],-->
-<!--          borderWidth: 1-->
-<!--        }]-->
-<!--      },-->
-<!--      options: {-->
-<!--        scales: {-->
-<!--          yAxes: [{-->
-<!--            ticks: {-->
-<!--              beginAtZero: true,-->
-<!--            }-->
-<!--          }]-->
-<!--        }-->
-<!--      }-->
-<!--    });-->
-<!--</script> -->
-<!-- 
-    <div class="container">
-        <div class="row my-3">
-            <div class="col-12">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="chart-container" style="position: relative; height:45vw; width:45vw">
-                <div class="card" style="border:none; background-color: #CE962C">
-                    <div class="card-body" style="border:none;">
-                        <canvas id="myChart1"></canvas>
-                    </div>
-                    <div class="card-footer text-center text-dark" style="border:none;background-color: #CE962C">
-                        <h3>왼쪽 그래프 이름</h3>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="chart-container" style="position: relative; height:45vw; width:45vw">
-                <div class="card" style="border:none;">
-                    <div class="card-body" style="border:none; background-color: #CE962C">
-                        <canvas id="myChart2"></canvas>
-                    </div>
-                    <div class="card card-body text-center" style="border:none; background-color: #CE962C">
-                        <h3>오른쪽 그래프 이름</h3>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-<script>
-    data = {
-        datasets: [{
-            backgroundColor: ['#962CCE', '#CE2C64', '#2C64CE'],
-            data: [10, 20, 30]
-        }],
-        labels: ['어지러워', '딮빡', '???']
-    };
-
-    var ctx1 = document.getElementById("myChart1");
-    var myPieChart = new Chart(ctx1, {
-        type: 'pie',
-        data: data,
-        options: {
-            response: false
-        }
-    });
-
-    var ctx2 = document.getElementById("myChart2");
-    var myDoughnutChart = new Chart(ctx2, {
-        type: 'doughnut',
-        data: data,
-        options: {
-            response: false
-        }
-    });
-</script> -->
     <!-- nav-bar-->
      <div id="navbar">
   <a href="login" onclick="btnLogout()">로그아웃</a>

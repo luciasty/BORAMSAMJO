@@ -4,52 +4,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의 일기장|보람삼조</title>
-        <!--css js 링크-->
-        <link href="../static/all_diary.css" rel="stylesheet"/>
-        <script async src="../static/main_2.js"></script>
-        <!-- font link -->
+    <!--css js 링크-->
+    <link href="../static/all_diary.css" rel="stylesheet"/>
+    <script async src="../static/main_2.js"></script>
+    <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap" rel="stylesheet">
-        <!-- Optional JavaScript -->
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap"
+          rel="stylesheet">
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <style>
-        .navbar {
-            background: hotpink;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            position: fixed;
-            width: 100%;
-            transition: transform .3s;
-        }
-        .navbar.hide {
-            transform: translateY(-100%);
-        }
-        .navbar > li {
-            display: inline-block;
-        }
-        .navbar > li > a {
-            display: block;
-            text-decoration: none;
-            padding: 10px 20px;
-            color: white;
-        }
-        .navbar > li > a:hover {
-            background: deeppink;
-        }
-    </style>
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function () {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
             console.log(userInfo);
             if (userInfo) {
                 chkAuthor(parseInt(userInfo['author']), userInfo['name']);
@@ -57,16 +34,18 @@
                 chkAuthor(0, "");
             }
         });
+
         function chkAuthor(num, name) {
             let tmp_html = ``;
             let head_html = ``;
+
             if (num === 1) {
                 head_html = `
                             <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
                 `;
                 tmp_html = `
-                            <div class="navbar">
-                                <button type="button" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</button>
+                            <div class="form-group row">
+                                <a href="admin" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</a>
                             </div>
                 `;
                 $('#txtHead').append(head_html);
@@ -84,13 +63,17 @@
                 $('.mybtn').text('로그인 하기');
             }
         }
+
         function btnAdmin() {
             window.location.href = '/admin';
         }
+
         function btnLogout() {
-            window.location.href = '/login';
+            window.location.href = '/';
         }
     </script>
+
+
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
         var last_top = 0;
@@ -106,23 +89,24 @@
     </script>
 </head>
 <body>
-    <!-- title -->
-    <div class="title">
-        <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
-    </div>
-    <!-- main -->
-    <div class="tabber">
-        <ul class="tabs">
-          <li class="active"><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
-          <li><a class="tab-trigger" href='/my_diary'>나의 일기장</a></li>
-          <li><a class="tab-trigger" href="/manager">분노 매니저</a></li>
-        </ul>
-    </div>
-        <!-- clock -->
-        <div class="flex-container">
-        <h1 id="clock" class="clock">clock</h1>
-        <script>
-          var Target = document.getElementById("clock");
+<!-- title -->
+<div class="title">
+    <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+</div>
+<!-- main -->
+<div class="tabber">
+    <ul class="tabs">
+        <li class="active"><a class="tab-trigger" href="#tab1">모두의 일기장</a></li>
+        <li><a class="tab-trigger" href='/my_diary'>나의 일기장</a></li>
+        <li><a class="tab-trigger" href="/manager">분노 매니저</a></li>
+    </ul>
+</div>
+<!-- clock -->
+<div class="flex-container">
+    <h1 id="clock" class="clock">clock</h1>
+    <script>
+        var Target = document.getElementById("clock");
+
         function clock() {
             var time = new Date();
             var month = time.getMonth();
@@ -133,83 +117,96 @@
             var minutes = time.getMinutes();
             var seconds = time.getSeconds();
             Target.innerText =
-            `${month + 1}월 ${date}일 ${week[day]}요일 ` +
-            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                `${month + 1}월 ${date}일 ${week[day]}요일 ` +
+                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
         }
+
         clock();
         setInterval(clock, 1000); // 1초마다 실행
-        </script>
-        </div>
-        <!-- tab -->
-        <div class="tab-content">
-          <div class="tab-panel active" content-id="tab1">
-            <ol class="articles">
-                <li class="articles__article" style="--animation-order:2"><a class="articles__link">
-                    <div class="articles__content articles__content--lhs">
-                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                      <div class="articles__footer">
-                        <p>Chocolates</p>
-                        <button class="show">show</button>
-                      </div>
-                    </div>
-                    <div class="articles__content articles__content--rhs" aria-hidden="true">
-                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                      <div class="articles__footer">
-                        <p>Chocolates</p>
-                        <button class="show">show</button>
-                      </div>
-                    </div></a></li>
-                <li class="articles__article" style="--animation-order:3"><a class="articles__link">
-                    <div class="articles__content articles__content--lhs">
-                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                      <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button>show</button>
-                      </div>
-                    </div>
-                    <div class="articles__content articles__content--rhs" aria-hidden="true">
-                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                      <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button class="show">show</button>
-                      </div>
-                    </div></a></li>
-                <li class="articles__article" style="--animation-order:3"><a class="articles__link">
-                    <div class="articles__content articles__content--lhs">
-                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                      <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button>show</button>
-                      </div>
-                    </div>
-                    <div class="articles__content articles__content--rhs" aria-hidden="true">
-                      <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                      <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button class="show">show</button>
-                      </div>
-                    </div></a></li>
-              </ol>
-          </div>
-        </div>
-    <div id="navbar">
-  <a href="login" onclick="btnLogout()">로그아웃</a>
-  <button type="button" onclick="btnAdmin()" class="btn btn-success mybtn">관리자 페이지</button>
-    </div>
-    <!-- Arrow up-->
-    <button class="arrow-up">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    <script>
-    // 20px 스크롤바 생성
-    window.onscroll = function() {scrollFunction()};
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("navbar").style.top = "0";
-      } else {
-        document.getElementById("navbar").style.top = "-50px";
-      }
-    }
     </script>
+</div>
+<!-- tab -->
+<div class="tab-content">
+    <div class="tab-panel active" content-id="tab1">
+        <ol class="articles">
+            <li class="articles__article" style="--animation-order:2"><a class="articles__link">
+                <div class="articles__content articles__content--lhs">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                        <p>Chocolates</p>
+                        <button class="show">show</button>
+                    </div>
+                </div>
+                <div class="articles__content articles__content--rhs" aria-hidden="true">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                        <p>Chocolates</p>
+                        <button class="show">show</button>
+                    </div>
+                </div>
+            </a></li>
+            <li class="articles__article" style="--animation-order:3"><a class="articles__link">
+                <div class="articles__content articles__content--lhs">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                        <p>Puddings</p>
+                        <button>show</button>
+                    </div>
+                </div>
+                <div class="articles__content articles__content--rhs" aria-hidden="true">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                        <p>Puddings</p>
+                        <button class="show">show</button>
+                    </div>
+                </div>
+            </a></li>
+            <li class="articles__article" style="--animation-order:3"><a class="articles__link">
+                <div class="articles__content articles__content--lhs">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                        <p>Puddings</p>
+                        <button>show</button>
+                    </div>
+                </div>
+                <div class="articles__content articles__content--rhs" aria-hidden="true">
+                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__footer">
+                        <p>Puddings</p>
+                        <button class="show">show</button>
+                    </div>
+                </div>
+            </a></li>
+        </ol>
+    </div>
+</div>
+<div id="navbar">
+    <footer class="footer">
+    <div style="display:flex" id="btnFooter">
+        <div class="form-group row">
+            <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+        </div>
+    </div>
+</footer>
+</div>
+<!-- Arrow up-->
+<button class="arrow-up">
+    <i class="fas fa-arrow-up"></i>
+</button>
+<script>
+    // 20px 스크롤바 생성
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-50px";
+        }
+    }
+</script>
+
 </body>
 </html>

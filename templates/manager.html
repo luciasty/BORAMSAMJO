@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>메이킹첼린지 | 통계</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0">;</script>
 
      <!-- font link -->
@@ -56,6 +56,57 @@
     </script>
 
 </head>
+
+
+    <script>
+        $(document).ready(function () {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+            console.log(userInfo);
+            if (userInfo) {
+                chkAuthor(parseInt(userInfo['author']), userInfo['name']);
+            } else {
+                chkAuthor(0, "");
+            }
+        });
+
+        function chkAuthor(num, name) {
+            let tmp_html = ``;
+            let head_html = ``;
+
+            if (num === 1) {
+                head_html = `
+                            <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
+                `;
+                tmp_html = `
+                            <div class="form-group row">
+                                <a href="admin" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</a>
+                            </div>
+                `;
+                $('#txtHead').append(head_html);
+                $('#btnFooter').append(tmp_html);
+            } else if (num === 2) {
+                head_html = `
+                            <label class="col-form-label font-contents">사용자 ${name}님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+            } else if (num === 0) {
+                head_html = `
+                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+                $('.mybtn').text('로그인 하기');
+            }
+        }
+
+        function btnAdmin() {
+            window.location.href = '/admin';
+        }
+
+        function btnLogout() {
+            window.location.href = '/';
+        }
+    </script>
 
 
 <body class = "bd">
@@ -221,12 +272,16 @@
         }
     });
 </script> -->
-    <!-- nav-bar-->
-     <div id="navbar">
-  <a href="login" onclick="btnLogout()">로그아웃</a>
-  <a href="admin">관리자 페이지</a>
+    <!-- 네비게이션바-->
+<div id="navbar">
+    <footer class="footer">
+    <div style="display:flex" id="btnFooter">
+        <div class="form-group row">
+            <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+        </div>
     </div>
-
+</footer>
+</div>
     <script>
     // 20px 스크롤바 생성
     window.onscroll = function() {scrollFunction()};

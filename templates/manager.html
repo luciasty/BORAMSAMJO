@@ -59,6 +59,57 @@
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
     ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+
+         <script>
+        $(document).ready(function () {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+            console.log(userInfo);
+            if (userInfo) {
+                chkAuthor(parseInt(userInfo['author']), userInfo['name']);
+            } else {
+                chkAuthor(0, "");
+            }
+        });
+
+        function chkAuthor(num, name) {
+            let tmp_html = ``;
+            let head_html = ``;
+
+            if (num === 1) {
+                head_html = `
+                            <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
+                `;
+                tmp_html = `
+                            <div class="form-group row">
+                                <a href="admin" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</a>
+                            </div>
+                `;
+                $('#txtHead').append(head_html);
+                $('#btnFooter').append(tmp_html);
+            } else if (num === 2) {
+                head_html = `
+                            <label class="col-form-label font-contents">사용자 ${name}님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+            } else if (num === 0) {
+                head_html = `
+                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+                $('.mybtn').text('로그인 하기');
+            }
+        }
+
+        function btnAdmin() {
+            window.location.href = '/admin';
+        }
+
+        function btnLogout() {
+            window.location.href = '/';
+        }
+    </script>
+
 </head>
 
 
@@ -325,10 +376,15 @@
     });
 </script> -->
     <!-- nav-bar-->
-     <div id="navbar">
-  <a href="login" onclick="btnLogout()">로그아웃</a>
-  <a href="admin">관리자 페이지</a>
+<div id="navbar">
+    <footer class="footer">
+    <div style="display:flex" id="btnFooter">
+        <div class="form-group row">
+            <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+        </div>
     </div>
+</footer>
+</div>
 
     <script>
     // 20px 스크롤바 생성

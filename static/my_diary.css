@@ -77,6 +77,13 @@ body::-webkit-scrollbar-thumb {
   vertical-align: 12px;
 }
 
+/* clock */
+.clock {
+  color: white;
+  display: inline;
+  font-size: 3rem;
+  margin-left: 45%;
+}
 /* 버튼이동 */
 .tabs2 {
   left: 50%;
@@ -310,13 +317,6 @@ body::-webkit-scrollbar-thumb {
 .tab-content {
   width: 100vw;
 }
-/* clock */
-.clock {
-  color: white;
-  display: inline;
-  font-size: 3rem;
-  margin-left: 40%;
-}
 
 /* clock */
 .flex-container {
@@ -324,7 +324,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   font-size: 1.2rem;
   font-family: 'Jua', sans-serif;
-  margin-left: 76vw;
+  margin-left: 80vw;
   width: 400px;
 }
 .flex-container.flex-end {

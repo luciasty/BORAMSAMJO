@@ -54,13 +54,20 @@
             url: "/users",
             data: { id_give: userID,
                     pw_give: userPW,
-                    nm_give: userNM
+                    nm_give: userNM,
+                    au_give: 2,
+                    chk_btn: 0,
+                    tmp_id: "",
+                    tmp_pw: ""
             },
             success: function (response) { // 성공하면
                 alert(response["msg"]);
-                window.location.href = '/';
+                if (response["result"] === 'success')
+                    window.location.href = '/';
+                else
+                    $('#userId').focus();
             }
-        })
+        });
    }
 </script>
 <body style="background-color: #C5003D">

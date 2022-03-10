@@ -1,5 +1,5 @@
 @charset "utf-8";
-*{
+* {
   margin: 0;
 }
 :root {
@@ -53,7 +53,7 @@ body::-webkit-scrollbar-thumb {
   text-align: right;
   padding: 8% 0;
   position: static;
-  background-image: url("back.jpg");
+  background-image: url('back.jpg');
   width: 100%;
   background-size: cover;
 }
@@ -82,7 +82,8 @@ body::-webkit-scrollbar-thumb {
   margin-left: 38%;
 }
 /* main */
-.tab-content , .tab-content2 {
+.tab-content,
+.tab-content2 {
   width: 100vw;
 }
 
@@ -138,12 +139,12 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 /*bar*/
-.week_title{
+.week_title {
   font-size: 2.2rem;
   margin-bottom: 2rem;
   margin-left: 2%;
 }
-.main{
+.main {
   margin: 0 4%;
 }
 
@@ -174,23 +175,23 @@ body::-webkit-scrollbar-thumb {
   margin-top: 3%;
   border: none;
 }
-.progress_title{
+.progress_title {
   font-size: 1.3rem;
 }
 main .examples,
-main .progresses{
+main .progresses {
   display: block;
   margin-bottom: 65px;
   padding: 2.8rem 3%;
-  background-color: #FFF;
+  background-color: #fff;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.157);
 }
 main .examples:last-child,
-main .progresses:last-child{
+main .progresses:last-child {
   margin-bottom: 20px;
 }
 main .examples h3,
-main .progresses h3{
+main .progresses h3 {
   color: #444;
   margin: 0;
   padding: 0 0 20px 0;
@@ -205,7 +206,7 @@ main .progresses h3{
   position: relative;
   overflow: hidden;
   width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .cssProgress .cssProgress-bar {
   display: block;
@@ -264,7 +265,16 @@ main .progresses h3{
 .cssProgress .cssProgress-stripes,
 .cssProgress .cssProgress-active,
 .cssProgress .cssProgress-active-right {
-  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.125) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.125) 50%, rgba(255, 255, 255, 0.125) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.125) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.125) 50%,
+    rgba(255, 255, 255, 0.125) 75%,
+    transparent 75%,
+    transparent
+  );
   background-size: 35px 35px;
 }
 .cssProgress .cssProgress-active {
@@ -308,7 +318,7 @@ main .progresses h3{
   }
 }
 .progress2 {
-  background-color: #B38B41;
+  background-color: #b38b41;
   border-radius: 9px;
   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -343,8 +353,8 @@ main .progresses h3{
   color: #c5003d;
 }
 /*주/월간 이동*/
-.tab-panel{
-  width:100vw;
+.tab-panel {
+  width: 100vw;
 }
 .tabs2 {
   width: 85%;
@@ -361,7 +371,7 @@ main .progresses h3{
   float: left;
   display: block;
 }
-.tabs2 input[type="radio"] {
+.tabs2 input[type='radio'] {
   position: absolute;
   top: 0;
   left: -9999px;
@@ -384,10 +394,10 @@ main .progresses h3{
   transition: all 0.2s ease-in-out;
 }
 .tabs2 label:hover {
-  color:var(--back--color);
+  color: var(--back--color);
 }
 .tabs2 .tab-content,
-.tabs2 .tab-content2{
+.tabs2 .tab-content2 {
   z-index: 2;
   display: none;
   overflow: hidden;
@@ -400,14 +410,14 @@ main .progresses h3{
   left: 0;
   /*background: #612e76;*/
 }
-.tabs2 [id^="tab"]:checked + label {
+.tabs2 [id^='tab']:checked + label {
   top: 0;
   padding-top: 17px;
   /*background: #612e76;*/
   color: var(--back--color);
 }
-.tabs2 [id^="tab"]:checked ~ [id^="tab-content"],
-.tabs2 [id^="tab"]:checked ~ [id^="tab-content2"]{
+.tabs2 [id^='tab']:checked ~ [id^='tab-content'],
+.tabs2 [id^='tab']:checked ~ [id^='tab-content2'] {
   display: block;
 }
 
@@ -428,32 +438,30 @@ p.link a {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-p.link a:hover {
-  /*background-color: #522764;*/
-}
 
 /*chart*/
-#chart-container{
+#chart-container {
   width: 80%;
   margin: 15px auto;
 }
-.place_title, .reason_title{
+.place_title,
+.reason_title {
   margin: 3% 2%;
   font-size: 2rem;
 }
-.donut_title{
+.donut_title {
   display: flex;
   align-content: center;
   justify-content: space-around;
   align-items: center;
 }
-.donut_content{
+.donut_content {
   display: flex;
   align-content: center;
   justify-content: space-around;
   align-items: center;
 }
-.canvas{
+.canvas {
   justify-content: left;
   font-family: 'Jua', sans-serif;
   width: 1080px !important;

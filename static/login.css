@@ -3,26 +3,70 @@
         font-family: 'Jua', sans-serif;
     }
 
-    .font-contents {
-        font-size: 25px;
-        width: 120px;
+.headbar {
+        height: 10%;
+        width: 62%;
+        margin: 10% auto 0.5% auto;
+        background-color: #AF1D49;
+        color: white;
+        text-align:center;
+    }
+
+.yellowbox {
+        height:30%;
+        width: 62%;
+        margin: 0rem auto 0rem auto;
+        padding: 1% 0rem 3% 0rem;
+        background-color: #CE962C;
+
     }
 
 
-    .mybtn {
+.font-contents {
+        font-size: 25px;
+        width: 120px;
+
+
+    }
+
+.form-group-row {
+        padding: 5% 8% 3% 5%;
+        color:white;
+        display: flex;
+    }
+
+.form-control{
+       background-color: #CE962C;
+       border-radius: 0.5rem;
+       border: 0.3rem solid #835863;
+    }
+
+
+.mybtn {
         width: 150px;
         margin: auto;
         display: block;
         font-size: 20px;
     }
 
-    .guestSize {
-        width: 100%;
+.guestSize {
+        width: 62%;
         height: 50px;
         text-align: center;
-    }
+        margin: 1% auto 0% auto;
+        background-color: #835863;
+        color:white;
+        cursor: pointer;
+        border:none;
+        border-radius: 0.2em;
+        font-size: 20px;
 
-    @media ( max-width: 1023px ) {
+
+
+     }
+
+     @media ( max-width: 1023px ) {
+
   .wrap{margin: 30px auto;}
   .wrap,.wrap.wd668.line{max-width:30vw;}
   .wrap.wd668{width:90vw;}

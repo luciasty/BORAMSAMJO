@@ -27,7 +27,7 @@ body{background-image: url("home.jpg");
 .title > a {
   text-decoration: ;
   font-family: 'Roboto', sans-serif;
-  font-size: 4em;
+  font-size: 4.5em;
   color: var(--red--color);
 }
 
@@ -35,18 +35,18 @@ body{background-image: url("home.jpg");
   font-family: 'Roboto Condensed', sans-serif;
   background-color: var(--red--color);
   color: var(--orange--color);
-  margin-right: -4px;
-  font-size: 8rem;
+  margin-right: -8px;
+  font-size: 5.49rem;
+  vertical-align: 21.5px;
 }
 
 .tag_title {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 2em;
   text-align: center;
-
   color:#C5003D;
   position: relative;
-  top:0%;
+  top:-2%;
 
 }
 

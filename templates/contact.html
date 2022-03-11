@@ -67,35 +67,50 @@
                 else
                     $('#userId').focus();
             }
-        });
+        })
+
+      // 완성형 아닌 한글 정규식
+    var replaceNotFullKorean = /[ㄱ-ㅎㅏ-ㅣ]/gi;
+
+    $(document).ready(function(){
+
+        $("#userId").on("focusout", function() {
+            var x = $(this).val();
+            if (x.length > 0) {
+                if (x.match(replaceChar) || x.match(replaceNotFullKorean)) {
+                    x = x.replace(replaceChar, "").replace(replaceNotFullKorean, "");
+                }
+                $(this).val(x);
+            }
+            }).on("keyup", function() {
+                $(this).val($(this).val().replace(replaceChar, ""));
+
+               $(document).ready(function(){
+                $('#userId').css("ime-mode", "active");
+            });
+
+    });
+
    }
 </script>
 <body style="background-color: #C5003D">
-    <div class="joinSize" style="height: 10%; width: 62%; margin: 10% auto 0.5% auto; background-color: #AF1D49">
-        <label style="color: aliceblue" class="col-form-label font-contents">회원가입</label>
+    <div class="headtitle">
+        <label class="col-form-label font-contents">회원가입</label>
     </div>
 
     <div>
-        <div style= "height:20%; width: 62%; margin: 0rem auto 0rem auto; padding: 2% 0rem 2% 0rem; background-color: #CE962C">
-            <div style="margin-left: 5%">
-                <div class="form-group row">
-                    <label style="color: aliceblue; width: 100%" class="col-form-label font-contents">아이디를 입력하세요.</label>
-                    <div>
-                        <input style="background-color: #CE962C; border-radius: 1rem; border: 0.3rem solid #835863;" id="userId" class="form-control" placeholder="ID" size="95%">
+        <div class= "yellowbox">
+                <div class="form-group-row">
+                    <label class="col-form-label font-contents">아이디를 입력하세요(영문)</label>
+                    <input type="text" id="userId" class="form-control" placeholder="ID" name="test" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')";>
                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <label style="color: aliceblue; width: 100%" class="col-form-label font-contents">패스워드를 입력하세요.</label>
-                    <div>
-                        <input style="background-color: #CE962C; border-radius: 1rem; border: 0.3rem solid #835863;" id="userPw" class="form-control" placeholder="PASSWORD" size="95%">
+                <div class="form-group-row">
+                    <label class="col-form-label font-contents">패스워드를 입력하세요(13자 이내)</label>
+                    <input type="text" maxlength='13' id="userPw" class="form-control" placeholder="PASSWORD">
                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <label style="color: aliceblue; width: 100%" class="col-form-label font-contents">이름을 입력하세요.</label>
-                    <div>
-                        <input style="background-color: #CE962C; border-radius: 1rem; border: 0.3rem solid #835863;" id="userName" class="form-control" placeholder="NAME" size="95%">
+                <div class="form-group-row">
+                    <label class="col-form-label font-contents">닉네임을 입력하세요</label>
+                    <input id="userName" class="form-control" placeholder="NICKNAME">
                     </div>
                 </div>
             </div>

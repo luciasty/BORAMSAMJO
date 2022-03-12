@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>나의 일기장 | 보람삼조</title>
     <!-- fontawsome link -->
     <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
@@ -104,13 +105,11 @@
                 `;
                 $('#txtHead').append(head_html);
             } else if (num === 0) {
-                head_html = `
-                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
-                `;
+                            window.location.href = '/login'
+            };
                 $('#txtHead').append(head_html);
                 $('.mybtn').text('로그인 하기');
-            }
-        }
+            };
 
         function btnAdmin() {
             window.location.href = '/admin';
@@ -120,6 +119,7 @@
             window.location.href = '/';
         }
     </script>
+
 </head>
 
 

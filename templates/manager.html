@@ -94,9 +94,7 @@
                 `;
                 $('#txtHead').append(head_html);
             } else if (num === 0) {
-                head_html = `
-                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
-                `;
+               window.location.href = '/login';
                 $('#txtHead').append(head_html);
                 $('.mybtn').text('로그인 하기');
             }

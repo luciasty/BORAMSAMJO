@@ -42,7 +42,7 @@
 </script>
 <!-- title -->
 <div class="title">
-    <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+    <a href="/all_diary"><h1>MY<span> ANGRY </span>DIARY</h1></a>
 </div>
 <!-- bar -->
 <div class="bar">
@@ -53,131 +53,132 @@
         어떻게 행동했나요?
     </div>
 </div>
-<!-- main -->
-<div class="main">
-    <!-- buttons -->
-    <div class="select">
-        <!-- 날짜 -->
-        <div class="date">
-            <p>날 짜</p>
-            <div class="birthday">
-                <input type="text" class="month" placeholder="MM" maxlength="2" pattern="\d*">
-                <span>/</span>
-                <input type="text" class="day" placeholder="DD" maxlength="2" pattern="\d*">
-                <span>/</span>
-                <input type="text" class="year" placeholder="YYYY" maxlength="4" pattern="\d*">
+<form>
+    <!-- main -->
+    <div class="main">
+        <!-- buttons -->
+        <div class="select">
+            <!-- 날짜 -->
+            <div class="date">
+                <p>날 짜</p>
+                <div class="birthday">
+                    <input type="text" class="month" placeholder="MM" maxlength="2" pattern="\d*">
+                    <span>/</span>
+                    <input type="text" class="day" placeholder="DD" maxlength="2" pattern="\d*">
+                    <span>/</span>
+                    <input type="text" class="year" placeholder="YYYY" maxlength="4" pattern="\d*">
+                </div>
             </div>
-        </div>
-        <!-- 장소 -->
-        <div class="area">
-            <p>장 소</p>
-            <div class='radio-group'>
-                <label class='radio-label'>
-                    <input name='area' type='radio' id='home' checked='checked'>
-                    <span class='inner-label'>집</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='area' type='radio' id='school'>
-                    <span class='inner-label'>학교</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='area' type='radio' id='company'>
-                    <span class='inner-label'>직장</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='area' type='radio' id='group'>
-                    <span class='inner-label'>모임</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='area' type='radio' id='etc'>
-                    <span class='inner-label'>기타</span>
-                </label>
-            </div>
-        </div>
-        <!-- 분노치 -->
-        <div class="angry">
-            <p>분 노 치</p>
-            <div class='radio-group'>
-                <label class='radio-label'>
-                    <input name='angry' type='radio' id='small_angry' checked='checked'>
-                    <span class='inner-label'>소노</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='angry' type='radio' id='middle_angry'>
-                    <span class='inner-label'>중노</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='angry' type='radio' id='large_angry'>
-                    <span class='inner-label'>대노</span>
-                </label>
-                <label class='radio-label'>
-                    <input name='angry' type='radio' id='Xlarge_angry'>
-                    <span class='inner-label'>극대노</span>
-                </label>
-            </div>
-        </div>
-        <!-- 대상 -->
-        <div class="who">
-            <p>대 상</p>
-            <div class="center">
+            <!-- 장소 -->
+            <div class="area">
+                <p>장 소</p>
                 <div class='radio-group'>
                     <label class='radio-label'>
-                        <input name='who' type='radio' id='pizza' value="igotnone" onClick="show1()" checked='own'>
-                        <span class='inner-label'>본인</span>
+                        <input name='area' type='radio' id='home' checked='checked'>
+                        <span class='inner-label'>집</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='who' type='radio' id='Others' value="igottwo" onClick="show2()">
-                        <span class='inner-label'>타인</span>
+                        <input name='area' type='radio' id='school'>
+                        <span class='inner-label'>학교</span>
                     </label>
-                    <div class="dropdown" id="other">
-                        <button class="dropbtn">인물 선택 ▾</button>
-                        <div class="dropdown-content">
-                            <a href="#">A</a>
-                            <a href="#">B</a>
-                            <a href="#">C</a>
-                            <a href="#">D</a>
+                    <label class='radio-label'>
+                        <input name='area' type='radio' id='company'>
+                        <span class='inner-label'>직장</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input name='area' type='radio' id='group'>
+                        <span class='inner-label'>모임</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input name='area' type='radio' id='etc'>
+                        <span class='inner-label'>기타</span>
+                    </label>
+                </div>
+            </div>
+            <!-- 분노치 -->
+            <div class="angry">
+                <p>분 노 치</p>
+                <div class='radio-group'>
+                    <label class='radio-label'>
+                        <input name='angry' type='radio' id='small_angry' checked='checked'>
+                        <span class='inner-label'>소노</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input name='angry' type='radio' id='middle_angry'>
+                        <span class='inner-label'>중노</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input name='angry' type='radio' id='large_angry'>
+                        <span class='inner-label'>대노</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input name='angry' type='radio' id='Xlarge_angry'>
+                        <span class='inner-label'>극대노</span>
+                    </label>
+                </div>
+            </div>
+            <!-- 대상 -->
+            <div class="who">
+                <p>대 상</p>
+                <div class="center">
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input name='who' type='radio' id='own' value="igotnone" onClick="show1()" checked='own'>
+                            <span class='inner-label'>본인</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='who' type='radio' id='Others' value="igottwo" onClick="show2()">
+                            <span class='inner-label'>타인</span>
+                        </label>
+                        <div class="dropdown" id="other">
+                            <button class="dropbtn">인물 선택 ▾</button>
+                            <div class="dropdown-content">
+                                <a href="#">A</a>
+                                <a href="#">B</a>
+                                <a href="#">C</a>
+                                <a href="#">D</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- 이유 -->
-        <div class="reason">
-            <p>이 유</p>
-            <div class="center">
-                <div class='radio-group'>
-                    <label class='radio-label'>
-                        <input name='reason' type='checkbox' id='pizza' checked='word'>
-                        <span class='inner-label'>말</span>
-                    </label>
-                    <label class='radio-label'>
-                        <input name='reason' type='checkbox' id='action'>
-                        <span class='inner-label'>행동</span>
-                    </label>
-                    <label class='radio-label'>
-                        <input name='reason' type='checkbox' id='situation'>
-                        <span class='inner-label'>상황</span>
-                    </label>
+            <!-- 이유 -->
+            <div class="reason">
+                <p>이 유</p>
+                <div class="center">
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input name='reason' type='checkbox' id='word' checked='word'>
+                            <span class='inner-label'>말</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='reason' type='checkbox' id='action'>
+                            <span class='inner-label'>행동</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input name='reason' type='checkbox' id='situation'>
+                            <span class='inner-label'>상황</span>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- write -->
-    <div class="paper">
-        <textarea id="post-content" class="textarea" placeholder="내용을 입력해주세요."></textarea>
-    </div>
-</div>
-<!-- button -->
-<div class="button">
-    <a href="my_diary.html">
-        <div class="button1">
-            취 소
+        <!-- write -->
+        <div class="paper">
+            <textarea id="post-content" class="textarea" placeholder="내용을 입력해주세요."></textarea>
         </div>
-    </a>
-    <div type="submit" class="button2" onclick="postDiary()">
-        작 성 완 료
     </div>
-
-</div>
+    <!-- button -->
+    <div class="button">
+        <a href="/my_diary">
+            <div class="button1">
+                취 소
+            </div>
+        </a>
+        <button type="submit" class="button2" onclick="postDiary()">
+            작 성 완 료
+        </button>
+    </div>
+</form>
 </body>
 </html>

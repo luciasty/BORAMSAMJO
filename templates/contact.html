@@ -31,67 +31,46 @@
 </head>
 <script>
    function postUserInfo() {
-        let userID = $('#userId').val();
-        let userPW = $('#userPw').val();
-        let userNM = $('#userName').val();
+       let userID = $('#userId').val();
+       let userPW = $('#userPw').val();
+       let userNM = $('#userName').val();
 
-        if(userID === ''){
-            alert('ID를 입력해 주세요.');
-            $('#userId').focus();
-            return;
-        } else if(userNM === '') {
-            alert('이름을 입력해 주세요.');
-            $('#userName').focus();
-            return;
-        } else if(userPW === '') {
-            alert('PW를 입력해 주세요.');
-            $('#userPw').focus();
-            return;
-        }
+       if (userID === '') {
+           alert('ID를 입력해 주세요.');
+           $('#userId').focus();
+           return;
+       } else if (userNM === '') {
+           alert('이름을 입력해 주세요.');
+           $('#userName').focus();
+           return;
+       } else if (userPW === '') {
+           alert('PW를 입력해 주세요.');
+           $('#userPw').focus();
+           return;
+       }
 
-        $.ajax({
-            type: "POST",
-            url: "/users",
-            data: { id_give: userID,
-                    pw_give: userPW,
-                    nm_give: userNM,
-                    au_give: 2,
-                    chk_btn: 0,
-                    tmp_id: "",
-                    tmp_pw: ""
-            },
-            success: function (response) { // 성공하면
-                alert(response["msg"]);
-                if (response["result"] === 'success')
-                    window.location.href = '/';
-                else
-                    $('#userId').focus();
-            }
-        })
-
-      // 완성형 아닌 한글 정규식
-    var replaceNotFullKorean = /[ㄱ-ㅎㅏ-ㅣ]/gi;
-
-    $(document).ready(function(){
-
-        $("#userId").on("focusout", function() {
-            var x = $(this).val();
-            if (x.length > 0) {
-                if (x.match(replaceChar) || x.match(replaceNotFullKorean)) {
-                    x = x.replace(replaceChar, "").replace(replaceNotFullKorean, "");
-                }
-                $(this).val(x);
-            }
-            }).on("keyup", function() {
-                $(this).val($(this).val().replace(replaceChar, ""));
-
-               $(document).ready(function(){
-                $('#userId').css("ime-mode", "active");
-            });
-
-    });
-
+       $.ajax({
+           type: "POST",
+           url: "/users",
+           data: {
+               id_give: userID,
+               pw_give: userPW,
+               nm_give: userNM,
+               au_give: 2,
+               chk_btn: 0,
+               tmp_id: "",
+               tmp_pw: ""
+           },
+           success: function (response) { // 성공하면
+               alert(response["msg"]);
+               if (response["result"] === 'success')
+                   window.location.href = '/';
+               else
+                   $('#userId').focus();
+           }
+       })
    }
+
 </script>
 <body style="background-color: #C5003D">
     <div class="headtitle">
@@ -102,7 +81,7 @@
         <div class= "yellowbox">
                 <div class="form-group-row">
                     <label class="col-form-label font-contents">아이디를 입력하세요(영문)</label>
-                    <input type="text" id="userId" class="form-control" placeholder="ID" name="test" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')";>
+                    <input type="text" id="userId" class="form-control" placeholder="ID" name="test" onkeyup="this.value=this.value.replace(/[^a-z0-9]/g,'')";>
                     </div>
                 <div class="form-group-row">
                     <label class="col-form-label font-contents">패스워드를 입력하세요(13자 이내)</label>

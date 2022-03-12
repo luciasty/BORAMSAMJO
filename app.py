@@ -117,5 +117,23 @@ def chk_users():
             return jsonify({'msg': '로그인 되었습니다!', 'user_info': user})
         pass
 
+# 일기 저장
+@app.route('/write_diary', methods=['POST'])
+def saving():
+    content_receive = request.form['content_give']
+
+    doc = {
+        # 'date': date,
+        # 'place' : place,
+        # 'anger': anger,
+        # 'target' : target,
+        # # 'initial',
+        # 'reason' : reason,
+        'content' : content_receive
+    }
+    db.diarys.insert_one(doc)
+
+    return jsonify({'msg':'작성이 완료되었습니다!'})
+
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)

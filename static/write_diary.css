@@ -31,8 +31,9 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   background-color: var(--orange--color);
   color: var(--red--color);
-  margin-right: -4px;
-  font-size: 3.5rem;
+  margin-right: -5px;
+  font-size: 3.09rem;
+  vertical-align: 12.4px;
 }
 
 /* bar */
@@ -259,41 +260,29 @@ body {
 
 .dropdown {
   display: none;
-}
-
-.dropbtn {
   position: relative;
   background-color: white;
   color: var(--orange--color);
   padding: 15px;
-  margin-left: 10px;
+  margin-left: 8px;
   font-size: 16px;
   border: none;
   border-radius: 10px;
   font-family: 'Jua', sans-serif;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
+.dropbtn {
+  position: relative;
+  background-color: white;
+  color: var(--orange--color);
+  padding: 8px;
+  margin-left: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Jua', sans-serif;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
 }
-
-.dropdown-content a {
-  color: var(--bar--color);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: var(--back--color);}
 
 /* write */
 .paper {

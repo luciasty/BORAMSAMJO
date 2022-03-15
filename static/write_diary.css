@@ -91,172 +91,8 @@ body {
 .reason > p {
   margin: 20px 50px;
   font-size: 2rem;
+ justify-content: center;
 }
-
-.form-group {
-  -webkit-box-shadow: 0 0 8px 0 #e6e9ec;
-  box-shadow: 0 0 8px 0 #e6e9ec;
-  background-color: #fff;
-  margin-bottom: 25px;
-  padding: 18px 18px;
-  border-radius: 4px;
-}
-
-.flatpickr-calendar .flatpickr-day {
-  border-width: 2px;
-  line-height: 38px;
-}
-
-.flatpickr-calendar .today {
-  border-color: #5c4084;
-}
-
-.flatpickr-calendar .selected,
-.flatpickr-calendar .prevMonthDay.selected {
-  background: #5c4084;
-  border-color: #5c4084;
-}
-.flatpickr-calendar .selected:hover,
-.flatpickr-calendar .prevMonthDay.selected:hover {
-  background: #7451a6;
-  border-color: #7451a6;
-}
-
-.btn-group button:first-child {
-  margin-right: 1px;
-}
-
-.btn-group .btn-success {
-  background: #a894bd;
-  background: -moz-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
-  background: -webkit-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
-  background: linear-gradient(135deg, #a894bd 0%, #8e75a9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
-  border: none;
-  padding: 8px 16px;
-}
-.btn-group .btn-success:active, .btn-group .btn-success:focus {
-  background: #a894bd;
-  background: -moz-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
-  background: -webkit-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
-  background: linear-gradient(135deg, #a894bd 0%, #8e75a9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
-}
-
-.btn-group .btn-default {
-  background: #eee;
-  background: -moz-linear-gradient(-45deg, #eee 0%, #ddd 100%);
-  background: -webkit-linear-gradient(-45deg, #eee 0%, #ddd 100%);
-  background: linear-gradient(135deg, #eee 0%, #ddd 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
-  color: #aaa;
-  border: none;
-  padding: 8px 16px;
-}
-.btn-group .btn-default:active, .btn-group .btn-default:focus {
-  background: #dde0e3;
-  background: -moz-linear-gradient(-45deg, #dde0e3 0%, #bfc5cc 100%);
-  background: -webkit-linear-gradient(-45deg, #dde0e3 0%, #bfc5cc 100%);
-  background: linear-gradient(135deg, #dde0e3 0%, #bfc5cc 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
-  color: #888;
-}
-
-.input-group {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-input{
-  font-size: 16px !important;
-}
-.birthday {
-  --background: #fff;
-  --border: #e6e7ee;
-  --border-width: 1px;
-  --border-focus: #0077ff;
-  --border-focus-width: 2px;
-  --text: #00104b;
-  --text-placeholder: #999fb7;
-  --default: #0077ff;
-  --smoke: var(--text-placeholder);
-  --error: #ff5252;
-  border-radius: 8px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: var(--background);
-  box-shadow: inset 0 0 0 var(--border-width) var(--border);
-  transition: box-shadow 0.3s;
-}
-
-.birthday input {
-  -webkit-appearance: none;
-  background: none;
-  border: none;
-  outline: none;
-  text-align: center;
-  font-family: inherit;
-  font-size: 16px;
-  margin: 0;
-  line-height: 24px;
-  padding: 12px var(--r, 0) 12px var(--l, 0);
-  width: var(--w, 22px);
-  color: var(--text);
-}
-.birthday input:first-of-type {
-  --w: 72px;
-  --l: 44px;
-}
-.birthday input:last-of-type {
-  --w: 64px;
-  --r: 24px;
-}
-.birthday input::-moz-placeholder {
-  font-size: 15px;
-  color: var(--text-placeholder);
-}
-.birthday input:-ms-input-placeholder {
-  font-size: 15px;
-  color: var(--text-placeholder);
-}
-.birthday input::placeholder {
-  font-size: 15px;
-  color: var(--text-placeholder);
-}
-.birthday span {
-  display: block;
-  opacity: 0.4;
-  margin: -1px 3px 0 3px;
-  color: var(--text-placeholder);
-}
-.birthday .error-message {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  white-space: nowrap;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: var(--o, 0);
-  color: var(--error);
-  transition: opacity 0.2s, transform 0.2s;
-  transform: translate(-50%, 4px) scale(var(--s, 0.8));
-}
-.birthday .error-message.show {
-  --s: 1;
-  --o: 1;
-}
-.birthday:focus-within {
-  --border: var(--border-focus);
-  --border-width: var(--border-focus-width);
-}
-
-.birthday.error {
-  --border: var(--error);
-  --border-width: var(--border-focus-width);
-}
-
 
 /* buttons */
 .select {
@@ -336,33 +172,7 @@ input{
   top: 1px;
 }
 
-/* 화난 대상 선택 */
 
-.dropdown {
-  display: none;
-  position: relative;
-  background-color: white;
-  color: var(--orange--color);
-  padding: 15px;
-  margin-left: 8px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  font-family: 'Jua', sans-serif;
-}
-
-.dropbtn {
-  position: relative;
-  background-color: white;
-  color: var(--orange--color);
-  padding: 8px;
-  margin-left: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  font-family: 'Jua', sans-serif;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
 
 /* write */
 .paper {
@@ -386,6 +196,12 @@ input{
   background: rgba(255, 0, 0, 0.4);
 }
 
+#date{
+  font-family: 'Jua', sans-serif;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+}
 .text {
   top: 65px;
   left: 55px;

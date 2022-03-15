@@ -22,20 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="../../../Downloads/select버튼변경/write_diary.css">
+
 
 </head>
 <body>
 <!-- 대상선택 : 타인 드롭박스 -->
 <script>
-    // $("input[name='tmpChkbox']").attr("checked", false);
-    // function show1() {
-    //     document.getElementById('other').style.display = 'none';
-    // }
-    //
-    // function show2() {
-    //     document.getElementById('other').style.display = 'block';
-    // }
 
     // let month = "";
     // let day = "";
@@ -140,9 +132,10 @@
         let textarea = $('#post-content').val()
 
         console.log(date, area, angry, who, reason, textarea);
+
         $.ajax({
             type: "POST",
-            url: `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
+            url: `/post_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
             data: {
                 date_give: date,
                 area_give: area,
@@ -152,11 +145,9 @@
                 textarea_give: textarea
             },
             success: function (response) {
-                alert(response["작성 완료!"]);
-                document.location.href = `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`;
-            }, error: function () {
-                alert('모든 내용을 작성해주세요!')
-            }
+                alert(response["msg"]);
+                document.location.href = `/read_diary`;
+            },error:function(request,status,error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
         })
         //     if (month && day && year && area && angry && who && reason && textarea) {
         //         document.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
@@ -164,41 +155,6 @@
         //         alert('모든 내용을 작성해주세요!')
         //     }
         //   }
-        //   function postDiary() {
-        //       let month = $('#month').val()
-        //       let day = $('#day').val()
-        //       let year = $('#year').val()
-        //       let area = $('.area').val()
-        //       let angry = $('.angry').val()
-        //       let who = $('.who').val()
-        //       let reason = $('.reason').val()
-        //       let textarea = $('#textarea').val()
-        //
-        //       $.ajax({
-        //           type: "post",
-        //           url: `write_diary`,
-        //           data: {area_give: area, angry_give: angry, who_give: who, reason_give: reason, textarea_give: textarea},
-        //           success: function (response) {
-        //               alert(response["msg"]);
-        //               window.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
-        //           }
-        //       })
-        //   }
-
-        // function postDiary() {
-        //     console.log(area, angry, who);
-        // let comment = $('#post-content').val()
-        //
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/write_diary",
-        //     data: {content_give:content},
-        //     success: function (response) { // 성공하면
-        //         alert(response["msg"]);
-        //         window.location.reload()
-        //     }
-        // })
-        // }
     }
 
 </script>
@@ -215,7 +171,7 @@
         어떻게 행동했나요?
     </div>
 </div>
-<form>
+<div>
     <!-- main -->
     <div class="main">
         <!-- buttons -->
@@ -224,13 +180,6 @@
             <div class="date">
                 <p>날 짜</p>
                 <input id="date" name="date" type="date">
-<!--                <div class="birthday">-->
-<!--                    <input type="text" id="month" name="month" placeholder="MM" maxlength="2" pattern="\d*">-->
-<!--                    <span>/</span>-->
-<!--                    <input type="text" id="day" name="day" placeholder="DD" maxlength="2" pattern="\d*">-->
-<!--                    <span>/</span>-->
-<!--                    <input type="text" id="year" name="year" placeholder="YYYY" maxlength="4" pattern="\d*">-->
-<!--                </div>-->
             </div>
 
             <!-- 장소 -->
@@ -343,6 +292,6 @@
             작 성 완 료
         </button>
     </div>
-</form>
+</div>
 </body>
 </html>

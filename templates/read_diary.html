@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,6 +27,88 @@
                 x.style.display = "none";
             }
         }
+
+        $(document).ready(function () {
+           const urlParams = new URLSearchParams(window.location.search);
+           const date = urlParams.get("date");
+           const area = urlParams.get("area");
+           const angry = urlParams.get("angry");
+           const who = urlParams.get("who");
+           const reason = urlParams.get("reason");
+           const textarea = urlParams.get("textarea");
+
+           console.log(date, area, angry, who, reason, textarea);
+           $.ajax({
+               type: "GET",
+               url: `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
+               data: {
+                   date_give: date,
+                   area_give: area,
+                   angry_give: angry,
+                   who_give: who,
+                   reason_give: reason,
+                   textarea_give: textarea,
+               },
+               success: function (response) {
+                   let diaries = response['all_diaries']
+                   for (let i = 0; i <diaries.length; i++) {
+                       let date = diaries[i]['date']
+                       let area = diaries[i]['area']
+                       let angry = diaries[i]['angry']
+                       let who = diaries[i]['who']
+                       let reason = diaries[i]['reason']
+                       let textarea = diaries[i]['textarea']
+
+                       let temp_html = `<!-- bar -->
+                                    <div class="bar">
+                                        <h2>${date}</h2>
+                                        <div class="tag">
+                                            ${area}
+                                        </div>
+                                        <div class="tag">
+                                            ${angry}
+                                        </div>
+                                        <div class="tag">
+                                            ${who}
+                                        </div>
+                                        <div class="tag">
+                                            ${reason}
+                                        </div>
+                                        <div class="emoticon">
+                                            <i class="fas fa-grin-beam"></i>
+                                            <i class="fas fa-angry"></i>
+                                            <button type="button" class="write_change"><a href="revise.html">수정</a></button>
+                                            <button type="button" class="write_delete">삭제</button>
+                                        </div>
+                                    </div>
+                                    <!-- write -->
+                                    <div class="write">
+                                        <div>
+                                            ${textarea}
+                                        </div>
+                                    </div>`
+                       $('#read-box').append(temp_html)
+                   }
+               }
+           })
+            // $('#read-box').html("");
+            // readDiary();
+
+
+        });
+
+        // function readDiary() {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: `/read_diary?area=${area}&angry=${angry}&who=${who}&reason=${reason}`,
+        //         data: {
+        //
+        //         },
+        //         success: function (response) {
+        //             alert(response["msg"]);
+        //         }
+        //     })
+        // }
         // // 댓글달기 버튼
         // const form__field = document.querySelector('.form__field');
         // const mediaAdd = document.querySelector('.mediaAdd');
@@ -50,34 +133,36 @@
         <i class="fas fa-arrow-left" type="button"></i>
         <i class="fas fa-arrow-right" type="button"></i>
     </div>
-    <!-- bar -->
-    <div class="bar">
-        <h2>2022.03.04</h2>
-        <div class="tag">
-            직장
+    <form id="read-box">
+        <!-- bar -->
+        <div class="bar">
+            <h2>2022.03.04</h2>
+            <div class="tag">
+                직장
+            </div>
+            <div class="tag">
+                대노
+            </div>
+            <div class="tag">
+                타인
+            </div>
+            <div class="tag">
+                상황
+            </div>
+            <div class="emoticon">
+                <i class="fas fa-grin-beam"></i>
+                <i class="fas fa-angry"></i>
+                <button type="button" class="write_change"><a href="revise.html">수정</a></button>
+                <button type="button" class="write_delete">삭제</button>
+            </div>
         </div>
-        <div class="tag">
-            대노
+        <!-- write -->
+        <div class="write">
+            <div>
+                box
+            </div>
         </div>
-        <div class="tag">
-            타인
-        </div>
-        <div class="tag">
-            상황
-        </div>
-        <div class="emoticon">
-            <i class="fas fa-grin-beam"></i>
-            <i class="fas fa-angry"></i>
-            <button type="button" class="write_change"><a href="revise.html">수정</a></button>
-            <button type="button" class="write_delete">삭제</button>
-        </div>
-    </div>
-    <!-- write -->
-    <div class="write">
-        <div>
-            box
-        </div>
-    </div>
+    </form>
     <!-- comment -->
     <div class="comment">
         <div class="comment_box">

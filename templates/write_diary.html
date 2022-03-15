@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,37 +9,198 @@
     <!--css js 링크-->
     <link href="../static/write_diary.css" rel="stylesheet"/>
     <script async src="../static/write_diary.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
+<!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<!--    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
 
     <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap"
           rel="stylesheet">
+    <link rel="stylesheet" href="../../../Downloads/select버튼변경/write_diary.css">
 
 </head>
 <body>
 <!-- 대상선택 : 타인 드롭박스 -->
 <script>
-    function show1() {
-        document.getElementById('other').style.display = 'none';
-    }
+    // $("input[name='tmpChkbox']").attr("checked", false);
+    // function show1() {
+    //     document.getElementById('other').style.display = 'none';
+    // }
+    //
+    // function show2() {
+    //     document.getElementById('other').style.display = 'block';
+    // }
 
-    function show2() {
-        document.getElementById('other').style.display = 'block';
-    }
+    // let month = "";
+    // let day = "";
+    // let year = "";
+    // let area = "";
+    // let angry = "";
+    // let who = "";
+    // let reason = "";
+    // let textarea = "";
+    //
+    // //선택한 값 저장 함수
+    // $(document).ready(function () {
+    //     // console.log(month, day, year);
+    //
+    //     $('input:radio[name = area]').click(function () {
+    //         const index = $(this).attr("area-index");
+    //         // console.log(index);
+    //         if (index === "0") area = "집";
+    //         else if (index === "1") area = "학교";
+    //         else if (index === "2") area = "직장";
+    //         else if (index === "3") area = "모임";
+    //         else if (index === "4") area = "기타";
+    //         console.log(area);
+    //     });
+    //
+    //     $('input:radio[name = angry]').click(function () {
+    //         const index = $(this).attr("angry-index");
+    //         //console.log(index);
+    //         if (index === "0") angry = "소노";
+    //         else if (index === "1") angry = "중노";
+    //         else if (index === "2") angry = "대노";
+    //         else if (index === "3") angry = "극대노";
+    //         console.log(angry);
+    //     });
+    //
+    //     $('input:radio[name = who]').click(function () {
+    //         const index = $(this).attr("who-index");
+    //         //console.log(index);
+    //         if (index === "0") who = "본인";
+    //         else if (index === "1") who = "타인";
+    //         else if (index === "2") who = "B";
+    //         else if (index === "3") who = "C";
+    //         else if (index === "4") who = "D";
+    //         console.log(who);
+    //     });
+    //
+    //     $("input[name=reason]:checked").each(function (index) {
+    //         if ($(this).is(":checked") === true) {
+    //             console.log($(this).val());
+    //         };
+    //         //
+    //         // $("text")
+    //
+    //     });
+    // });
+
+
+    // 클린된 값 css설정을 위한 함수(클래스, 속성추가)
+      $(document).ready(function () {
+        $('input:radio[name = area]')
+          .each(function (index) {
+            $(this).attr("area-index", index);
+          })
+          .click(function () {
+            var index = $(this).attr("area-index");
+            $(".area[area-index=" + index + "]").addClass("clicked_area");
+            $(".area[area-index!=" + index + "]").removeClass("clicked_area");
+          });
+      });
+
+      $(document).ready(function () {
+        $('input:radio[name = angry]')
+          .each(function (index) {
+            $(this).attr("angry-index", index);
+          })
+          .click(function () {
+            var index = $(this).attr("area-index");
+            $(".angry[angry-index=" + index + "]").addClass("clicked_angry");
+            $(".angry[angry-index!=" + index + "]").removeClass("clicked_angry");
+          });
+      });
+
+      $(document).ready(function () {
+        $('input:radio[name = who]')
+          .each(function (index) {
+            $(this).attr("who-index", index);
+          })
+          .click(function () {
+            var index = $(this).attr("area-index");
+            $(".who[who-index=" + index + "]").addClass("clicked_who");
+            $(".who[who-index!=" + index + "]").removeClass("clicked_who");
+          });
+      });
+
+
     function postDiary() {
-                let comment = $('#post-content').val()
+        let date = $('#date').val()
+        let area = $('input:radio[name = area]:checked').val()
+        let angry = $('input:radio[name = angry]:checked').val()
+        let who = $('input:radio[name = who]:checked').val()
+        let reason = $("input[name=reason]:checked").val()
+        let textarea = $('#post-content').val()
 
-                $.ajax({
-                    type: "POST",
-                    url: "/write_diary",
-                    data: {content_give:content},
-                    success: function (response) { // 성공하면
-                        alert(response["msg"]);
-                        window.location.reload()
-                    }
-                })
+        console.log(date, area, angry, who, reason, textarea);
+        $.ajax({
+            type: "POST",
+            url: `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
+            data: {
+                date_give: date,
+                area_give: area,
+                angry_give: angry,
+                who_give: who,
+                reason_give: reason,
+                textarea_give: textarea
+            },
+            success: function (response) {
+                alert(response["작성 완료!"]);
+                document.location.href = `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`;
+            }, error: function () {
+                alert('모든 내용을 작성해주세요!')
             }
+        })
+        //     if (month && day && year && area && angry && who && reason && textarea) {
+        //         document.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
+        //       } else{
+        //         alert('모든 내용을 작성해주세요!')
+        //     }
+        //   }
+        //   function postDiary() {
+        //       let month = $('#month').val()
+        //       let day = $('#day').val()
+        //       let year = $('#year').val()
+        //       let area = $('.area').val()
+        //       let angry = $('.angry').val()
+        //       let who = $('.who').val()
+        //       let reason = $('.reason').val()
+        //       let textarea = $('#textarea').val()
+        //
+        //       $.ajax({
+        //           type: "post",
+        //           url: `write_diary`,
+        //           data: {area_give: area, angry_give: angry, who_give: who, reason_give: reason, textarea_give: textarea},
+        //           success: function (response) {
+        //               alert(response["msg"]);
+        //               window.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
+        //           }
+        //       })
+        //   }
+
+        // function postDiary() {
+        //     console.log(area, angry, who);
+        // let comment = $('#post-content').val()
+        //
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/write_diary",
+        //     data: {content_give:content},
+        //     success: function (response) { // 성공하면
+        //         alert(response["msg"]);
+        //         window.location.reload()
+        //     }
+        // })
+        // }
+    }
+
 </script>
 <!-- title -->
 <div class="title">
@@ -61,36 +223,38 @@
             <!-- 날짜 -->
             <div class="date">
                 <p>날 짜</p>
-                <div class="birthday">
-                    <input type="text" class="month" placeholder="MM" maxlength="2" pattern="\d*">
-                    <span>/</span>
-                    <input type="text" class="day" placeholder="DD" maxlength="2" pattern="\d*">
-                    <span>/</span>
-                    <input type="text" class="year" placeholder="YYYY" maxlength="4" pattern="\d*">
-                </div>
+                <input id="date" name="date" type="date">
+<!--                <div class="birthday">-->
+<!--                    <input type="text" id="month" name="month" placeholder="MM" maxlength="2" pattern="\d*">-->
+<!--                    <span>/</span>-->
+<!--                    <input type="text" id="day" name="day" placeholder="DD" maxlength="2" pattern="\d*">-->
+<!--                    <span>/</span>-->
+<!--                    <input type="text" id="year" name="year" placeholder="YYYY" maxlength="4" pattern="\d*">-->
+<!--                </div>-->
             </div>
+
             <!-- 장소 -->
             <div class="area">
                 <p>장 소</p>
                 <div class='radio-group'>
                     <label class='radio-label'>
-                        <input name='area' type='radio' id='home' checked='checked'>
+                        <input class="area" name='area' type='radio' value="집" id='home'>
                         <span class='inner-label'>집</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='area' type='radio' id='school'>
+                        <input class="area" name='area' type='radio' value="학교" id='school'>
                         <span class='inner-label'>학교</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='area' type='radio' id='company'>
+                        <input class="area" name='area' type='radio' value="직장" id='company'>
                         <span class='inner-label'>직장</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='area' type='radio' id='group'>
+                        <input class="area" name='area' type='radio' value="모임" id='group'>
                         <span class='inner-label'>모임</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='area' type='radio' id='etc'>
+                        <input class="area" name='area' type='radio' value="기타" id='etc'>
                         <span class='inner-label'>기타</span>
                     </label>
                 </div>
@@ -100,19 +264,19 @@
                 <p>분 노 치</p>
                 <div class='radio-group'>
                     <label class='radio-label'>
-                        <input name='angry' type='radio' id='small_angry' checked='checked'>
+                        <input class="angry" name='angry' type='radio' value="소노" id='small_angry'>
                         <span class='inner-label'>소노</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='angry' type='radio' id='middle_angry'>
+                        <input class="angry" name='angry' type='radio' value="중노" id='middle_angry'>
                         <span class='inner-label'>중노</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='angry' type='radio' id='large_angry'>
+                        <input class="angry" name='angry' type='radio' value="대노" id='large_angry'>
                         <span class='inner-label'>대노</span>
                     </label>
                     <label class='radio-label'>
-                        <input name='angry' type='radio' id='Xlarge_angry'>
+                        <input class="angry" name='angry' type='radio' value="극대노" id='X_large_angry'>
                         <span class='inner-label'>극대노</span>
                     </label>
                 </div>
@@ -123,22 +287,21 @@
                 <div class="center">
                     <div class='radio-group'>
                         <label class='radio-label'>
-                            <input name='who' type='radio' id='own' value="igotnone" onClick="show1()" checked='own'>
+                            <input class="who" name='who' type='radio' id='own' value="본인">
                             <span class='inner-label'>본인</span>
                         </label>
                         <label class='radio-label'>
-                            <input name='who' type='radio' id='Others' value="igottwo" onClick="show2()">
-                            <span class='inner-label'>타인</span>
+                            <input class="who" name="who" type='radio' id='OthersA' value="타인A">
+                            <span class='inner-label'>타인A</span>
                         </label>
-                        <div class="dropdown" id="other">
-                            <button class="dropbtn">인물 선택 ▾</button>
-                            <div class="dropdown-content">
-                                <a href="#">A</a>
-                                <a href="#">B</a>
-                                <a href="#">C</a>
-                                <a href="#">D</a>
-                            </div>
-                        </div>
+                        <label class='radio-label'>
+                            <input class="who" name="who" type='radio' id='OthersB' value="타인B">
+                            <span class='inner-label'>타인B</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input class="who" name="who" type='radio' id='OthersC' value="타인C">
+                            <span class='inner-label'>타인C</span>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -148,15 +311,15 @@
                 <div class="center">
                     <div class='radio-group'>
                         <label class='radio-label'>
-                            <input name='reason' type='checkbox' id='word' checked='word'>
+                            <input class="reason" name='reason' type='checkbox' value="말" id='word'>
                             <span class='inner-label'>말</span>
                         </label>
                         <label class='radio-label'>
-                            <input name='reason' type='checkbox' id='action'>
+                            <input class="reason" name='reason' type='checkbox' value="행동" id='action'>
                             <span class='inner-label'>행동</span>
                         </label>
                         <label class='radio-label'>
-                            <input name='reason' type='checkbox' id='situation'>
+                            <input class="reason" name='reason' type='checkbox' value="상황" id='situation'>
                             <span class='inner-label'>상황</span>
                         </label>
                     </div>
@@ -165,7 +328,7 @@
         </div>
         <!-- write -->
         <div class="paper">
-            <textarea id="post-content" class="textarea" placeholder="내용을 입력해주세요."></textarea>
+            <textarea id="post-content" name="textarea" placeholder="내용을 입력해주세요."></textarea>
         </div>
     </div>
     <!-- button -->

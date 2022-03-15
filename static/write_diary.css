@@ -31,8 +31,9 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   background-color: var(--orange--color);
   color: var(--red--color);
-  margin-right: -4px;
-  font-size: 3.5rem;
+  margin-right: -5px;
+  font-size: 3.09rem;
+  vertical-align: 12.3px;
 }
 
 /* bar */
@@ -170,6 +171,7 @@ body {
   left: 9px;
   top: 1px;
 }
+
 
 
 /* write */

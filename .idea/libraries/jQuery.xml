@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="jQuery" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="jQuery" />
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/Downloads/jquery-ui-1.13.1/jquery-ui-1.13.1/external/jquery/jquery.js" />
+        <item url="file://$USER_HOME$/Downloads/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/jquery-ui-1.13.1/jquery-ui-1.13.1/external/jquery/jquery.js" />
+      <root url="file://$USER_HOME$/Downloads/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.js" />
+      <root url="file://$USER_HOME$/Downloads/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

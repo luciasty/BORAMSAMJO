@@ -74,6 +74,7 @@ body {
 }
 /* date */
 .date,
+.text-center,
 .area,
 .angry,
 .who,
@@ -82,6 +83,7 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+.text-center > p,
 .date > p,
 .area > p,
 .angry > p,
@@ -91,6 +93,84 @@ body {
   font-size: 2rem;
 }
 
+.form-group {
+  -webkit-box-shadow: 0 0 8px 0 #e6e9ec;
+  box-shadow: 0 0 8px 0 #e6e9ec;
+  background-color: #fff;
+  margin-bottom: 25px;
+  padding: 18px 18px;
+  border-radius: 4px;
+}
+
+.flatpickr-calendar .flatpickr-day {
+  border-width: 2px;
+  line-height: 38px;
+}
+
+.flatpickr-calendar .today {
+  border-color: #5c4084;
+}
+
+.flatpickr-calendar .selected,
+.flatpickr-calendar .prevMonthDay.selected {
+  background: #5c4084;
+  border-color: #5c4084;
+}
+.flatpickr-calendar .selected:hover,
+.flatpickr-calendar .prevMonthDay.selected:hover {
+  background: #7451a6;
+  border-color: #7451a6;
+}
+
+.btn-group button:first-child {
+  margin-right: 1px;
+}
+
+.btn-group .btn-success {
+  background: #a894bd;
+  background: -moz-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
+  background: -webkit-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
+  background: linear-gradient(135deg, #a894bd 0%, #8e75a9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
+  border: none;
+  padding: 8px 16px;
+}
+.btn-group .btn-success:active, .btn-group .btn-success:focus {
+  background: #a894bd;
+  background: -moz-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
+  background: -webkit-linear-gradient(-45deg, #a894bd 0%, #8e75a9 100%);
+  background: linear-gradient(135deg, #a894bd 0%, #8e75a9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
+}
+
+.btn-group .btn-default {
+  background: #eee;
+  background: -moz-linear-gradient(-45deg, #eee 0%, #ddd 100%);
+  background: -webkit-linear-gradient(-45deg, #eee 0%, #ddd 100%);
+  background: linear-gradient(135deg, #eee 0%, #ddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
+  color: #aaa;
+  border: none;
+  padding: 8px 16px;
+}
+.btn-group .btn-default:active, .btn-group .btn-default:focus {
+  background: #dde0e3;
+  background: -moz-linear-gradient(-45deg, #dde0e3 0%, #bfc5cc 100%);
+  background: -webkit-linear-gradient(-45deg, #dde0e3 0%, #bfc5cc 100%);
+  background: linear-gradient(135deg, #dde0e3 0%, #bfc5cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="$light", endColorstr="$dark",GradientType=1 );
+  color: #888;
+}
+
+.input-group {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input{
+  font-size: 16px !important;
+}
 .birthday {
   --background: #fff;
   --border: #e6e7ee;
@@ -318,8 +398,8 @@ body {
   outline: none;
 }
 textarea {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 89%;
   background-color: var(--orange--color);
   border: none;
   color: white;

@@ -131,28 +131,30 @@ def chk_users():
 
 # write_diary 에서 작성한 일기를 db_diaries 에 저장
 
-@app.route('/write_diary', methods=['POST', 'GET'])
-def write_diary():
-    if request.method == 'POST':
-        date_receive = request.form['date_give']
-        area_receive = request.form['area_give']
-        angry_receive = request.form['angry_give']
-        who_receive = request.form['who_give']
-        reason_receive = request.form['reason_give']
-        textarea_receive = request.form['textarea_give']
-        post = {
-            'date': date_receive,
-            'area': area_receive,
-            'angry': angry_receive,
-            'who': who_receive,
-            'reason': reason_receive,
-            'textarea': textarea_receive
-        }
-        db.diaries.insert_one(post)
 
-        return redirect('read_diary.html')
-    else:
-        return render_template('write_diary.html')
+@app.route('/post_diary', methods=['POST'])
+def post_diary():
+    date_receive = request.form['date_give']
+    area_receive = request.form['area_give']
+    angry_receive = request.form['angry_give']
+    who_receive = request.form['who_give']
+    reason_receive = request.form['reason_give']
+    textarea_receive = request.form['textarea_give']
+    post = {
+        'date': date_receive,
+        'area': area_receive,
+        'angry': angry_receive,
+        'who': who_receive,
+        'reason': reason_receive,
+        'textarea': textarea_receive
+    }
+    db.diaries.insert_one(post)
+    return jsonify({'msg': '작성이 완료되었습니다!'})
+
+
+@app.route('/write_diary', methods=['GET'])
+def write_diary():
+    return render_template('write_diary.html')
 
 
 @app.route('/all_diary', methods=['GET'])
@@ -172,9 +174,9 @@ def read_diary():
     who_receive = request.args.get('who')
     reason_receive = request.args.get('reason')
     textarea_receive = request.args.get('textarea')
-
-    print(date_receive, area_receive, angry_receive, who_receive, reason_receive,
-          textarea_receive)
+    #
+    # print(date_receive, area_receive, angry_receive, who_receive, reason_receive,
+    #       textarea_receive)
 
     return render_template('read_diary.html')
 

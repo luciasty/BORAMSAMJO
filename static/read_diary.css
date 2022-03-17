@@ -16,7 +16,7 @@ body {
 .title {
   text-align: center;
   margin-top: 4%;
-  margin-right: px;
+  /*margin-right: px;*/
 }
 .title > a {
   text-decoration: none;
@@ -123,6 +123,16 @@ h2 {
   margin: 15px 80px;
   height: 40rem;
   border-radius: 15px;
+}
+
+.box {
+  height: 94%;
+  margin: 15px;
+  padding: 17px;
+  font-size: 3rem;
+  color: white;
+  font-family: 'Jua', sans-serif;
+  /*scroll: auto;*/
 }
 
 /* comment */
@@ -249,6 +259,29 @@ body::-webkit-scrollbar-thumb {
     180deg,
     var(--orange--color) 0%,
     var(--back--color) 99%
+  );
+  box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
+}
+
+.write > .box {
+  overflow: auto;
+}
+
+.write > .box::-webkit-scrollbar {
+  width: 10px;
+}
+
+.write > .box::-webkit-scrollbar-track {
+  background-color: var(--tag--color);
+  border-radius: 100px;
+}
+
+.write > .box::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-image: linear-gradient(
+    180deg,
+    var(--bar--color) 0%,
+    var(--tag--color) 99%
   );
   box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255, 0.5);
 }

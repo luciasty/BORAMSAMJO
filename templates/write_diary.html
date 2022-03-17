@@ -10,7 +10,7 @@
     <link href="../static/write_diary.css" rel="stylesheet"/>
     <script async src="../static/write_diary.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
 <!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
 <!--            crossorigin="anonymous"></script>-->
@@ -22,11 +22,58 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap"
           rel="stylesheet">
+    <script>
+    $(document).ready(function () {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
+            console.log(userInfo);
+            if (userInfo) {
+                chkAuthor(parseInt(userInfo['author']), userInfo['name']);
+            } else {
+                chkAuthor(0, "");
+            }
+        });
+
+        function chkAuthor(num, name) {
+            let tmp_html = ``;
+            let head_html = ``;
+
+            if (num === 1) {
+                head_html = `
+                            <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
+                `;
+                tmp_html = `
+                            <div class="form-group row">
+                                <a href="admin" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</a>
+                            </div>
+                `;
+                $('#txtHead').append(head_html);
+                $('#btnFooter').append(tmp_html);
+            } else if (num === 2) {
+                head_html = `
+                            <label class="col-form-label font-contents">사용자 ${name}님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+            } else if (num === 0) {
+                head_html = `
+                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+                $('.mybtn').text('로그인 하기');
+            }
+        }
+
+        function btnAdmin() {
+            window.location.href = '/admin';
+        }
+
+        function btnLogout() {
+            window.location.href = '/';
+        }
+    </script>
 
 </head>
 <body>
-<!-- 대상선택 : 타인 드롭박스 -->
 <script>
 
     // let month = "";
@@ -123,45 +170,48 @@
       });
 
 
-    function postDiary() {
-        let date = $('#date').val()
-        let area = $('input:radio[name = area]:checked').val()
-        let angry = $('input:radio[name = angry]:checked').val()
-        let who = $('input:radio[name = who]:checked').val()
-        let reason = $("input[name=reason]:checked").val()
-        let textarea = $('#post-content').val()
-
-        console.log(date, area, angry, who, reason, textarea);
-
-        $.ajax({
-            type: "POST",
-            url: `/post_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
-            data: {
-                date_give: date,
-                area_give: area,
-                angry_give: angry,
-                who_give: who,
-                reason_give: reason,
-                textarea_give: textarea
-            },
-            success: function (response) {
-                alert(response["msg"]);
-                document.location.href = `/read_diary`;
-            },error:function(request,status,error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
-        })
-        //     if (month && day && year && area && angry && who && reason && textarea) {
-        //         document.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
-        //       } else{
-        //         alert('모든 내용을 작성해주세요!')
-        //     }
-        //   }
-    }
+    // function postDiary() {
+    //     let date = $('#date').val()
+    //     let area = $('input:radio[name = area]:checked').val()
+    //     let angry = $('input:radio[name = angry]:checked').val()
+    //     let who = $('input:radio[name = who]:checked').val()
+    //     let reason = $("input[name=reason]:checked").val()
+    //     let textarea = $('#post-content').val()
+    //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    //     let user = userInfo['name']
+    //     console.log(user, date, area, angry, who, reason, textarea);
+    //
+    //     $.ajax({
+    //         type: "POST",
+    //         url: `/post_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
+    //         data: {
+    //             user_give: user,
+    //             date_give: date,
+    //             area_give: area,
+    //             angry_give: angry,
+    //             who_give: who,
+    //             reason_give: reason,
+    //             textarea_give: textarea
+    //         },
+    //         success: function (response) {
+    //             alert(response["msg"]);
+    //             document.location.href = `/read`;
+    //         },error:function(request,status,error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
+    //     })
+    //     //     if (month && day && year && area && angry && who && reason && textarea) {
+    //     //         document.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
+    //     //       } else{
+    //     //         alert('모든 내용을 작성해주세요!')
+    //     //     }
+    //     //   }
+    // }
 
 </script>
 <!-- title -->
 <div class="title">
     <a href="/all_diary"><h1>MY<span> ANGRY </span>DIARY</h1></a>
 </div>
+<form name="form" method="post" action="/post_diary">
 <!-- bar -->
 <div class="bar">
     <div class="bar1">
@@ -293,5 +343,34 @@
         </button>
     </div>
 </div>
+    </form>
+<!-- 네비게이션바-->
+<div id="navbar">
+    <footer class="footer">
+    <div style="display:flex" id="btnFooter">
+        <div class="form-group row">
+            <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+            <a href="all_diary">모두의 일기장</a>
+            <a href="my_diary">나의 일기장</a>
+            <a href="manager">분노 매니저</a>
+
+        </div>
+    </div>
+</footer>
+</div>
+<script>
+    // 20px 스크롤바 생성
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+            document.getElementById("navbar").style.top = "50";
+        } else {
+            document.getElementById("navbar").style.top = "50";
+        }
+    }
+</script>
 </body>
 </html>

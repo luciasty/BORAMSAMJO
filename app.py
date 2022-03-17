@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, json, abort, redirect, url_for, session, flash
+from flask import Flask, render_template, request, jsonify, json, abort, redirect, url_for
 
 from pymongo import MongoClient
 from flask_pymongo import PyMongo
@@ -135,8 +135,6 @@ def chk_users():
 
 @app.route('/post_diary', methods=['POST'])
 def post_diary():
-    if session.get("id") is None:
-        return redirect(url_for("login"))
     user_receive = request.form.get('user')
     date_receive = request.form.get('date')
     area_receive = request.form.get('area')
@@ -189,26 +187,26 @@ def list_my_diary():
     my_diaries = list(db.diaries.find({'user': '${user}'}))
     return jsonify({'my_diaries': my_diaries})
 
-#
-# @app.route('/read/<idx>')
-# def read(idx):
-#     # idx = request.args.get("idx")
-#     if idx is not None:
-#         diaries = mongo.db.diaries
-#         data = diaries.find_one({"_id": ObjectId(idx)})
-#
-#         if data is not None:
-#             result = {
-#                 'id': data.get("_id"),
-#                 'date': data.get("date"),
-#                 'area': data.get("area"),
-#                 'angry': data.get("angry"),
-#                 'who': data.get("who"),
-#                 'reason': data.get("reason"),
-#                 'textarea': data.get("textarea")
-#             }
-#             return render_template('read_diary.html', result=result)
-#     return abort(404)
+
+@app.route('/read')
+def read():
+    idx = request.args.get("idx")
+    if idx is not None:
+        diaries = mongo.db.diaries
+        data = diaries.find_one({"_id": ObjectId(idx)})
+
+        if data is not None:
+            result = {
+                'id': data.get("_id"),
+                'date': data.get("date"),
+                'area': data.get("area"),
+                'angry': data.get("angry"),
+                'who': data.get("who"),
+                'reason': data.get("reason"),
+                'textarea': data.get("textarea")
+            }
+            return render_template('read_diary.html', result=result)
+    return abort(404)
 #
 #
 # @app.route("/revise/<idx>", methods=['GET', "POST"])

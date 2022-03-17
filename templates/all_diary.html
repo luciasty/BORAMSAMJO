@@ -7,7 +7,7 @@
     <title>모두의 일기장|보람삼조</title>
     <!--css js 링크-->
     <link href="../static/all_diary.css" rel="stylesheet"/>
-    <script async src="../static/main_2.js"></script>
+<!--    <script async src="../static/all_diary.js"></script>-->
     <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-
     <script>
         $(document).ready(function () {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -87,38 +86,46 @@
             }
             last_top = this_top;
         });
+
     </script>
-    <script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+
+        // let diaryList = [];
+
         $(document).ready(function (){
-            all_diary()
-        })
-        function all_diary() {
+            console.log('msg')
+            list_diary();
+        });
+
+        function list_diary() {
+            console.log('msg1')
             $.ajax({
                 type: "GET",
-                url: "/all_diary",
+                url: "/list",
                 data: {},
                 success: function (response) {
-                    let diaries = response['diaries']
+                    let diaries = response["all_diaries"]
+                    console.log(diaries);
                     for (let i = 0; i < diaries.length; i++){
-                        let date = diaries[i]['date']
+                        let user = diaries[i]['user']
                         let textarea = diaries[i]['textarea']
-                        let temp_html = `<li class="articles__article" style="--animation-order:2"><a class="articles__link">
-                <div class="articles__content articles__content--lhs">
+
+                        let temp_html = `<div class="articles__content articles__content--lhs">
                     <h2 class="articles__title">${textarea}</h2>
                     <div class="articles__footer">
-                        <p>${date}</p>
+                        <p>${user}</p>
                         <button class="show">show</button>
                     </div>
                 </div>
                 <div class="articles__content articles__content--rhs" aria-hidden="true">
                     <h2 class="articles__title">${textarea}</h2>
                     <div class="articles__footer">
-                        <p>${date}</p>
+                        <p>${user}</p>
                         <button class="show">show</button>
                     </div>
-                </div>
-            </a></li>`
-                        $('#articles').append(temp_html)
+                </div>`
+                        $('.articles__article').append(temp_html);
                     }
                 }
             })
@@ -162,61 +169,68 @@
          </ul>
 </div>
 </div>
+{% if datas|length > 0 %}
 <!-- tab -->
 <div class="tab-content">
     <div class="tab-panel active" content-id="tab1">
         <ol class="articles" id="articles">
-            <li class="articles__article" style="--animation-order:2"><a class="articles__link">
+            {% for data in datas %}
+            <li class="articles__article" style="--animation-order:2">
+                <a href="{{url_for('read', idx=data._id)}}" class="articles__link">
                 <div class="articles__content articles__content--lhs">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__title">{{data.textarea}}</div>
                     <div class="articles__footer">
-                        <p>Chocolates</p>
-                        <button class="show">show</button>
+                        <p>{{data.date}}</p>
+                            <button class="show">show</button>
                     </div>
                 </div>
                 <div class="articles__content articles__content--rhs" aria-hidden="true">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
+                    <div class="articles__title">{{data.textarea}}</div>
                     <div class="articles__footer">
-                        <p>Chocolates</p>
+                        <p>{{data.date}}</p>
                         <button class="show">show</button>
                     </div>
                 </div>
-            </a></li>
-            <li class="articles__article" style="--animation-order:3"><a class="articles__link">
-                <div class="articles__content articles__content--lhs">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button>show</button>
-                    </div>
-                </div>
-                <div class="articles__content articles__content--rhs" aria-hidden="true">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button class="show">show</button>
-                    </div>
-                </div>
-            </a></li>
-            <li class="articles__article" style="--animation-order:3"><a class="articles__link">
-                <div class="articles__content articles__content--lhs">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button>show</button>
-                    </div>
-                </div>
-                <div class="articles__content articles__content--rhs" aria-hidden="true">
-                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>
-                    <div class="articles__footer">
-                        <p>Puddings</p>
-                        <button class="show">show</button>
-                    </div>
-                </div>
-            </a></li>
+            </a>
+            </li>
+            {% endfor %}
+<!--            <li class="articles__article" style="&#45;&#45;animation-order:3"><a class="articles__link">-->
+<!--                <div class="articles__content articles__content&#45;&#45;lhs">-->
+<!--                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>-->
+<!--                    <div class="articles__footer">-->
+<!--                        <p>Puddings</p>-->
+<!--                        <button>show</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="articles__content articles__content&#45;&#45;rhs" aria-hidden="true">-->
+<!--                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>-->
+<!--                    <div class="articles__footer">-->
+<!--                        <p>Puddings</p>-->
+<!--                        <button class="show">show</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </a></li>-->
+<!--            <li class="articles__article" style="&#45;&#45;animation-order:3"><a class="articles__link">-->
+<!--                <div class="articles__content articles__content&#45;&#45;lhs">-->
+<!--                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>-->
+<!--                    <div class="articles__footer">-->
+<!--                        <p>Puddings</p>-->
+<!--                        <button>show</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="articles__content articles__content&#45;&#45;rhs" aria-hidden="true">-->
+<!--                    <h2 class="articles__title">오늘은 이런일이 있었다.</h2>-->
+<!--                    <div class="articles__footer">-->
+<!--                        <p>Puddings</p>-->
+<!--                        <button class="show">show</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </a></li>-->
         </ol>
     </div>
 </div>
+{% else %}
+{% endif %}
 <!-- 네비게이션바-->
 <div id="navbar">
     <footer class="footer">
@@ -231,10 +245,6 @@
     </div>
 </footer>
 </div>
-<!-- Arrow up-->
-<button class="arrow-up">
-    <i class="fas fa-arrow-up"></i>
-</button>
 <script>
     // 20px 스크롤바 생성
     window.onscroll = function () {

@@ -1,124 +1,374 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일기보기 | 보람삼조</title>
+    <title>일기쓰기 | 보람상조</title>
 
     <!--css js 링크-->
-    <link href="../static/revise.css" rel="stylesheet"/>
-    <script async src="../static/revise.js"></script>
+    <link href="../static/write_diary.css" rel="stylesheet"/>
+    <script async src="../static/write_diary.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
+<!--            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--            crossorigin="anonymous"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<!--    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
 
     <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap" rel="stylesheet">
-    
-    <!-- fontawsome link -->
-    <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@900&display=swap"
+          rel="stylesheet">
     <script>
-        // 댓글창열기/닫기
-        function myFunction() {
-            var x = document.getElementById("comments-list");
-            if (x.style.display === "none") {
-                x.style.display = "block";
+    $(document).ready(function () {
+            const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+            console.log(userInfo);
+            if (userInfo) {
+                chkAuthor(parseInt(userInfo['author']), userInfo['name']);
             } else {
-                x.style.display = "none";
+                chkAuthor(0, "");
+            }
+        });
+
+        function chkAuthor(num, name) {
+            let tmp_html = ``;
+            let head_html = ``;
+
+            if (num === 1) {
+                head_html = `
+                            <label class="col-form-label font-contents">관리자 ${name}님 환영합니다!</label>
+                `;
+                tmp_html = `
+                            <div class="form-group row">
+                                <a href="admin" onclick="btnAdmin()" class="btn btn-success mybtn">사용자 관리</a>
+                            </div>
+                `;
+                $('#txtHead').append(head_html);
+                $('#btnFooter').append(tmp_html);
+            } else if (num === 2) {
+                head_html = `
+                            <label class="col-form-label font-contents">사용자 ${name}님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+            } else if (num === 0) {
+                head_html = `
+                            <label class="col-form-label font-contents">방문자님 환영합니다!</label>
+                `;
+                $('#txtHead').append(head_html);
+                $('.mybtn').text('로그인 하기');
             }
         }
-        // // 댓글달기 버튼
-        // const form__field = document.querySelector('.form__field');
-        // const mediaAdd = document.querySelector('.mediaAdd');
-        // const lists = document.querySelector('.lists');
 
-        // const onAdd = () => {
-        //     console.log('찍히니?');
-        // };
+        function btnAdmin() {
+            window.location.href = '/admin';
+        }
 
-        // mediaAdd.addEventListener('click', () => {
-        //     onAdd();
-        // });
+        function btnLogout() {
+            window.location.href = '/';
+        }
     </script>
+
 </head>
 <body>
-    <!-- title -->
-    <div class="title">
-        <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
-    </div>
-    <!-- arrow -->
-    <div class="back_button">
-        <i class="fas fa-arrow-left" type="button"></i>
-        <i class="fas fa-arrow-right" type="button"></i>
-    </div>
-    <!-- bar -->
-    <div class="bar">
-        <h2>2022.03.04</h2>
-        <div class="tag">
-            직장
-        </div>
-        <div class="tag">
-            대노
-        </div>
-        <div class="tag">
-            타인
-        </div>
-        <div class="tag">
-            상황
-        </div>
-        <div class="emoticon">
-            <i class="fas fa-grin-beam"></i>
-            <i class="fas fa-angry"></i>
-            <button type="button" class="write_change">수정중...</button>
-            <button type="button" class="write_delete">삭제</button>
-        </div>
-    </div>
-    <!-- write -->
-    <div class="write">
-        <textarea class="textarea"></textarea>
-    </div>
-    <!-- comment -->
-    <div class="comment">
-        <div class="comment_box">
-            <button onclick="myFunction()"  class="btn_comment">
-            댓글보기▼
-            </button>
-        </div>
-        <div id="comments-list" class="comment-list">
-            <div class="lists">
-            <div class="media">
-                   <p class="media-heading user_name">노경민</p>
-                   <h6 class="user_comment">Wow! this is really great.</h6>
-                   <h6 class="user_comment">Wow! this is really great.</h6>
-                   <button type="button" class="comment-delete-btn">수정</button>
-                   <button type="button" class="comment-delete-btn">삭제</button>
-               </div>
-            <div class="media">
-                   <p class="media-heading user_name">이재은</p>
-                   <h6 class="user_comment">Wow! this is really great.</h6>
-                   <button type="button" class="comment-delete-btn">수정</button>
-                   <button type="button" class="comment-delete-btn">삭제</button>
-               </div>
-            <div class="media">
-                   <p class="media-heading user_name">황윤경</p>
-                   <h6 class="user_comment">Wow! this is really great.</h6>
-                   <button type="button" class="comment-delete-btn">수정</button>
-                   <button type="button" class="comment-delete-btn">삭제</button>
-               </div>
-            <div class="media">
-                   <p class="media-heading user_name">한종혁</p>
-                   <h6 class="user_comment">Wow! this is really great.</h6>
-                   <button type="button" class="comment-delete-btn">수정</button>
-                   <button type="button" class="comment-delete-btn">삭제</button>
-               </div>
-            </div>
-            <div class="write_comment">
-                    <form class="form">
-                        <input type="text" class="form__field" placeholder="댓글을 달아주세요." />
-                        <button type="button" class="btn btn--primary btn--inside uppercase">댓글 달기</button>
-                    </form>
-            </div>
-        </div>
-    </div>
+<script>
 
+    // let month = "";
+    // let day = "";
+    // let year = "";
+    // let area = "";
+    // let angry = "";
+    // let who = "";
+    // let reason = "";
+    // let textarea = "";
+    //
+    // //선택한 값 저장 함수
+    // $(document).ready(function () {
+    //     // console.log(month, day, year);
+    //
+    //     $('input:radio[name = area]').click(function () {
+    //         const index = $(this).attr("area-index");
+    //         // console.log(index);
+    //         if (index === "0") area = "집";
+    //         else if (index === "1") area = "학교";
+    //         else if (index === "2") area = "직장";
+    //         else if (index === "3") area = "모임";
+    //         else if (index === "4") area = "기타";
+    //         console.log(area);
+    //     });
+    //
+    //     $('input:radio[name = angry]').click(function () {
+    //         const index = $(this).attr("angry-index");
+    //         //console.log(index);
+    //         if (index === "0") angry = "소노";
+    //         else if (index === "1") angry = "중노";
+    //         else if (index === "2") angry = "대노";
+    //         else if (index === "3") angry = "극대노";
+    //         console.log(angry);
+    //     });
+    //
+    //     $('input:radio[name = who]').click(function () {
+    //         const index = $(this).attr("who-index");
+    //         //console.log(index);
+    //         if (index === "0") who = "본인";
+    //         else if (index === "1") who = "타인";
+    //         else if (index === "2") who = "B";
+    //         else if (index === "3") who = "C";
+    //         else if (index === "4") who = "D";
+    //         console.log(who);
+    //     });
+    //
+    //     $("input[name=reason]:checked").each(function (index) {
+    //         if ($(this).is(":checked") === true) {
+    //             console.log($(this).val());
+    //         };
+    //         //
+    //         // $("text")
+    //
+    //     });
+    // });
+
+
+    // 클린된 값 css설정을 위한 함수(클래스, 속성추가)
+      $(document).ready(function () {
+        $('input:radio[name = area]')
+          .each(function (index) {
+            $(this).attr("area-index", index);
+          })
+          .click(function () {
+            var index = $(this).attr("area-index");
+            $(".area[area-index=" + index + "]").addClass("clicked_area");
+            $(".area[area-index!=" + index + "]").removeClass("clicked_area");
+          });
+      });
+
+      $(document).ready(function () {
+        $('input:radio[name = angry]')
+          .each(function (index) {
+            $(this).attr("angry-index", index);
+          })
+          .click(function () {
+            var index = $(this).attr("area-index");
+            $(".angry[angry-index=" + index + "]").addClass("clicked_angry");
+            $(".angry[angry-index!=" + index + "]").removeClass("clicked_angry");
+          });
+      });
+
+      $(document).ready(function () {
+        $('input:radio[name = who]')
+          .each(function (index) {
+            $(this).attr("who-index", index);
+          })
+          .click(function () {
+            var index = $(this).attr("area-index");
+            $(".who[who-index=" + index + "]").addClass("clicked_who");
+            $(".who[who-index!=" + index + "]").removeClass("clicked_who");
+          });
+      });
+
+
+    // function postDiary() {
+    //     let date = $('#date').val()
+    //     let area = $('input:radio[name = area]:checked').val()
+    //     let angry = $('input:radio[name = angry]:checked').val()
+    //     let who = $('input:radio[name = who]:checked').val()
+    //     let reason = $("input[name=reason]:checked").val()
+    //     let textarea = $('#post-content').val()
+    //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    //     let user = userInfo['name']
+    //     console.log(user, date, area, angry, who, reason, textarea);
+    //
+    //     $.ajax({
+    //         type: "POST",
+    //         url: `/post_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
+    //         data: {
+    //             user_give: user,
+    //             date_give: date,
+    //             area_give: area,
+    //             angry_give: angry,
+    //             who_give: who,
+    //             reason_give: reason,
+    //             textarea_give: textarea
+    //         },
+    //         success: function (response) {
+    //             alert(response["msg"]);
+    //             document.location.href = `/read`;
+    //         },error:function(request,status,error){ alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
+    //     })
+    //     //     if (month && day && year && area && angry && who && reason && textarea) {
+    //     //         document.location.href = `/read_diary?month=${month}&day=${day}&year=${year}&area=${area}&angry=${angry}&who=${who}&selectBox=${who}&reason=${reason}&textarea=${textarea}`;
+    //     //       } else{
+    //     //         alert('모든 내용을 작성해주세요!')
+    //     //     }
+    //     //   }
+    // }
+
+</script>
+<!-- title -->
+<div class="title">
+    <a href="/all_diary"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+</div>
+<form name="form" method="post" action="/revise/{{data._id}}">
+<!-- bar -->
+<div class="bar">
+    <div class="bar1">
+        어떤 상황이었나요?
+    </div>
+    <div class="bar2">
+        어떻게 행동했나요?
+    </div>
+</div>
+<div>
+    <!-- main -->
+    <div class="main">
+        <!-- buttons -->
+        <div class="select">
+            <!-- 날짜 -->
+            <div class="date">
+                <p>날 짜</p>
+                <input id="date" name="date" type="date" value="{{data.date}}">
+            </div>
+
+            <!-- 장소 -->
+            <div class="area">
+                <p>장 소</p>
+                <div class='radio-group'>
+                    <label class='radio-label'>
+                        <input class="area" name='area' type='radio' value="{{data.area}}" id='home'>
+                        <span class='inner-label'>집</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="area" name='area' type='radio' value="{{data.area}}" id='school'>
+                        <span class='inner-label'>학교</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="area" name='area' type='radio' value="{{data.area}}" id='company'>
+                        <span class='inner-label'>직장</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="area" name='area' type='radio' value="{{data.area}}" id='group'>
+                        <span class='inner-label'>모임</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="area" name='area' type='radio' value="{{data.area}}" id='etc'>
+                        <span class='inner-label'>기타</span>
+                    </label>
+                </div>
+            </div>
+            <!-- 분노치 -->
+            <div class="angry">
+                <p>분 노 치</p>
+                <div class='radio-group'>
+                    <label class='radio-label'>
+                        <input class="angry" name='angry' type='radio' value="{{data.angry}}" id='small_angry'>
+                        <span class='inner-label'>소노</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="angry" name='angry' type='radio' value="{{data.angry}}" id='middle_angry'>
+                        <span class='inner-label'>중노</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="angry" name='angry' type='radio' value="{{data.angry}}" id='large_angry'>
+                        <span class='inner-label'>대노</span>
+                    </label>
+                    <label class='radio-label'>
+                        <input class="angry" name='angry' type='radio' value="{{data.angry}}" id='X_large_angry'>
+                        <span class='inner-label'>극대노</span>
+                    </label>
+                </div>
+            </div>
+            <!-- 대상 -->
+            <div class="who">
+                <p>대 상</p>
+                <div class="center">
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input class="who" name='who' type='radio' id='own' value="{{data.who}}">
+                            <span class='inner-label'>본인</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input class="who" name="who" type='radio' id='OthersA' value="{{data.who}}">
+                            <span class='inner-label'>타인A</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input class="who" name="who" type='radio' id='OthersB' value="{{data.who}}">
+                            <span class='inner-label'>타인B</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input class="who" name="who" type='radio' id='OthersC' value="{{data.who}}">
+                            <span class='inner-label'>타인C</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- 이유 -->
+            <div class="reason">
+                <p>이 유</p>
+                <div class="center">
+                    <div class='radio-group'>
+                        <label class='radio-label'>
+                            <input class="reason" name='reason' type='checkbox' value="{{data.reason}}" id='word'>
+                            <span class='inner-label'>말</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input class="reason" name='reason' type='checkbox' value="{{data.reason}}" id='action'>
+                            <span class='inner-label'>행동</span>
+                        </label>
+                        <label class='radio-label'>
+                            <input class="reason" name='reason' type='checkbox' value="{{data.reason}}" id='situation'>
+                            <span class='inner-label'>상황</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- write -->
+        <div class="paper">
+            <textarea id="post-content" name="textarea" placeholder="내용을 입력해주세요.">{{data.textarea}}</textarea>
+        </div>
+    </div>
+    <!-- button -->
+    <div class="button">
+        <a href="/my_diary">
+            <div class="button1">
+                취 소
+            </div>
+        </a>
+        <button type="submit" class="button2" onclick="postDiary()">
+            작 성 완 료
+        </button>
+    </div>
+</div>
+    </form>
+<!-- 네비게이션바-->
+<div id="navbar">
+    <footer class="footer">
+    <div style="display:flex" id="btnFooter">
+        <div class="form-group row">
+            <a href="login" onclick="btnLogout()" class="btn btn-success mybtn">로그아웃</a>
+            <a href="all_diary">모두의 일기장</a>
+            <a href="my_diary">나의 일기장</a>
+            <a href="manager">분노 매니저</a>
+        </div>
+    </div>
+</footer>
+</div>
+<script>
+    // 20px 스크롤바 생성
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+            document.getElementById("navbar").style.top = "50";
+        } else {
+            document.getElementById("navbar").style.top = "50";
+        }
+    }
+</script>
 </body>
 </html>

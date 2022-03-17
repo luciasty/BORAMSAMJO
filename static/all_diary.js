@@ -1,21 +1,5 @@
 "use strict";
 
-
-// Show "arrow up" button when scrolling down
-const arrowUp = document.querySelector('.arrow-up');
-document.addEventListener('scroll', () => {
-    if (window.scrollY > homeHeight / 2) {
-        arrowUp.classList.add('visible');
-    } else {
-        arrowUp.classList.remove('visible');
-    }
-});
-        
-// Handle click on the "arrow up" button
-arrowUp.addEventListener('click', () => {
-    scrollIntoView('.title');
-});
-
 // main
 const tabber = document.querySelector(".tabber");
 
@@ -37,10 +21,3 @@ tabber.addEventListener("click", (e) => {
     );
   }
 });
-
-
-
-
-
-
-

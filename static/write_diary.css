@@ -288,3 +288,29 @@ textarea::-webkit-scrollbar-thumb {
   border: none;
 }
 
+ /* navbar 바  */
+
+ #navbar {
+          background-color: var(--back--color);
+          position: fixed;
+          top: 0px;
+          width: 100%;
+          transition: top 0.3s;
+        }
+
+        /* navbar links */
+        #navbar a {
+          float: left;
+          display: #c5003d;
+          font-family: 'Jua', sans-serif;
+          font-size: 1.2rem;
+          color: #ce962c;
+          text-align: center;
+          padding: 15px;
+          text-decoration: none;
+        }
+
+        #navbar a:hover {
+          background-color: #987c83;
+          color: #c5003d;
+        }

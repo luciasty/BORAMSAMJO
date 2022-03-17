@@ -7,6 +7,7 @@
     <title>일기보기 | 보람삼조</title>
 
     <!--css js 링크-->
+
     <link href="../static/read_diary.css" rel="stylesheet"/>
     <script async src="../static/read_diary.js"></script>
 
@@ -17,85 +18,73 @@
     
     <!-- fontawsome link -->
     <script src="https://kit.fontawesome.com/ed0aef1019.js" crossorigin="anonymous"></script>
-    <script>
-        // 댓글창열기/닫기
-        function myFunction() {
-            var x = document.getElementById("comments-list");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+        // $(document).ready(function () {
+        //     const date = JSON.parse(localStorage.getItem(("diariesInfo")))
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     // const date = urlParams.get("date");
+        //     const area = urlParams.get("area");
+        //     const angry = urlParams.get("angry");
+        //     const who = urlParams.get("who");
+        //     const reason = urlParams.get("reason");
+        //     const textarea = urlParams.get("textarea");
+        //
+        //     console.log(date, area, angry, who, reason, textarea);
+        //     $.ajax({
+        //         type: "GET",
+        //         url: `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
+        //         data: {
+        //             date_give: date,
+        //             area_give: area,
+        //             angry_give: angry,
+        //             who_give: who,
+        //             reason_give: reason,
+        //             textarea_give: textarea,
+        //         },
+        //         success: function (response) {
+        //             let diaries = response['all_diaries']
+        //             for (let i = 0; i < diaries.length; i++) {
+        //                 let date = diaries[i]['date']
+        //                 let area = diaries[i]['area']
+        //                 let angry = diaries[i]['angry']
+        //                 let who = diaries[i]['who']
+        //                 let reason = diaries[i]['reason']
+        //                 let textarea = diaries[i]['textarea']
+        //
+        //                 let temp_html = `<div class="bar">
+        //                                     <h2>${date}</h2>
+        //                                     <div class="tag">
+        //                                         ${area}
+        //                                     </div>
+        //                                     <div class="tag">
+        //                                         ${angry}
+        //                                     </div>
+        //                                     <div class="tag">
+        //                                         ${who}
+        //                                     </div>
+        //                                     <div class="tag">
+        //                                         ${reason}
+        //                                     </div>
+        //                                     <div class="emoticon">
+        //                         <!--                <i class="fas fa-grin-beam"></i>-->
+        //                         <!--                <i class="fas fa-angry"></i>-->
+        //                                         <button type="button" class="write_change"><a href="revise.html">수정</a></button>
+        //                                         <button type="button" class="write_delete">삭제</button>
+        //                                     </div>
+        //                                 </div>
+        //                                 <!-- write -->
+        //                                 <div class="write">
+        //                                     <div class="box">
+        //                                         ${textarea}
+        //                                     </div>
+        //                                 </div>`
+        //                 $('#read-box').append(temp_html)
+        //             }
+        //         }
+        //     })
+        // });
 
-        $(document).ready(function () {
-           const urlParams = new URLSearchParams(window.location.search);
-           const date = urlParams.get("date");
-           const area = urlParams.get("area");
-           const angry = urlParams.get("angry");
-           const who = urlParams.get("who");
-           const reason = urlParams.get("reason");
-           const textarea = urlParams.get("textarea");
-
-           console.log(date, area, angry, who, reason, textarea);
-           $.ajax({
-               type: "GET",
-               url: `/read_diary?date=${date}&area=${area}&angry=${angry}&who=${who}&reason=${reason}&textarea=${textarea}`,
-               data: {
-                   date_give: date,
-                   area_give: area,
-                   angry_give: angry,
-                   who_give: who,
-                   reason_give: reason,
-                   textarea_give: textarea,
-               },
-               success: function (response) {
-                   let diaries = response['all_diaries']
-                   for (let i = 0; i <diaries.length; i++) {
-                       let date = diaries[i]['date']
-                       let area = diaries[i]['area']
-                       let angry = diaries[i]['angry']
-                       let who = diaries[i]['who']
-                       let reason = diaries[i]['reason']
-                       let textarea = diaries[i]['textarea']
-
-                       let temp_html = `<!-- bar -->
-                                    <div class="bar">
-                                        <h2>${date}</h2>
-                                        <div class="tag">
-                                            ${area}
-                                        </div>
-                                        <div class="tag">
-                                            ${angry}
-                                        </div>
-                                        <div class="tag">
-                                            ${who}
-                                        </div>
-                                        <div class="tag">
-                                            ${reason}
-                                        </div>
-                                        <div class="emoticon">
-                                            <i class="fas fa-grin-beam"></i>
-                                            <i class="fas fa-angry"></i>
-                                            <button type="button" class="write_change"><a href="revise.html">수정</a></button>
-                                            <button type="button" class="write_delete">삭제</button>
-                                        </div>
-                                    </div>
-                                    <!-- write -->
-                                    <div class="write">
-                                        <div>
-                                            ${textarea}
-                                        </div>
-                                    </div>`
-                       $('#read-box').append(temp_html)
-                   }
-               }
-           })
-            // $('#read-box').html("");
-            // readDiary();
-
-
-        });
 
         // function readDiary() {
         //     $.ajax({
@@ -121,48 +110,59 @@
         // mediaAdd.addEventListener('click', () => {
         //     onAdd();
         // });
+
+        // 댓글창열기/닫기
+        function myFunction() {
+            var x = document.getElementById("comments-list");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
     </script>
 </head>
 <body>
+
     <!-- title -->
     <div class="title">
-        <a href="../templates/all_diary.html"><h1>MY<span> ANGRY </span>DIARY</h1></a>
+        <a href="/all_diary"><h1>MY<span> ANGRY </span>DIARY</h1></a>
     </div>
     <!-- arrow -->
     <div class="back_button">
         <i class="fas fa-arrow-left" type="button"></i>
         <i class="fas fa-arrow-right" type="button"></i>
     </div>
-    <form id="read-box">
+    <div id="read-box">
         <!-- bar -->
         <div class="bar">
-            <h2>2022.03.04</h2>
+            <h2>{{result.date}}</h2>
             <div class="tag">
-                직장
+                {{result.area}}
             </div>
             <div class="tag">
-                대노
+                {{result.angry}}
             </div>
             <div class="tag">
-                타인
+                {{result.who}}
             </div>
             <div class="tag">
-                상황
+                {{result.reason}}
             </div>
             <div class="emoticon">
-                <i class="fas fa-grin-beam"></i>
-                <i class="fas fa-angry"></i>
+<!--                <i class="fas fa-grin-beam"></i>-->
+<!--                <i class="fas fa-angry"></i>-->
                 <button type="button" class="write_change"><a href="revise.html">수정</a></button>
                 <button type="button" class="write_delete">삭제</button>
             </div>
         </div>
         <!-- write -->
         <div class="write">
-            <div>
-                box
+            <div class="box">
+                {{result.textarea}}
             </div>
         </div>
-    </form>
+    </div>
     <!-- comment -->
     <div class="comment">
         <div class="comment_box">
@@ -205,6 +205,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 </html>
